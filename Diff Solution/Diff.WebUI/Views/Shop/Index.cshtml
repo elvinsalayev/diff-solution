@@ -1,0 +1,181 @@
+﻿@model ShopIndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<main class="shop">
+    <div class="shop_title">
+        <h1 class="shop_title_text">Məhsullarımız</h1>
+        <h1 class="shop_title_description">
+            Keyfiyyətimiz fərqliliyimizdir.
+        </h1>
+    </div>
+    <div class="shop_container">
+        <div class="row gutter-lg main-content-wrap">
+            <div class="col-lg-3 col-12 left_side">
+
+                <div class="left_side_elements">
+                    <h2 class="left_side_elements_title">Brend</h2>
+                    <ul class="left_side_elements_list">
+                        @foreach (var item in Model.Brands)
+                        {
+                            <li class="left_side_elements_item">
+                                <a href="./product/@item.Id" class="left_side_elements_link">@item.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="left_side_elements">
+                    <h2 class="left_side_elements_title">Ölçü</h2>
+                    <ul class="left_side_elements_list">
+
+                        @foreach (var item in Model.ProductSizes)
+                        {
+                            <li class="left_side_elements_item">
+                                <a href="./product/@item.Id" class="left_side_elements_link">@item.ShortName</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="left_side_elements">
+                    <h2 class="left_side_elements_title">Kateqoriya</h2>
+                    <ul class="left_side_elements_list">
+                        @foreach (var item in Model.Categories)
+                        {
+                            <li class="left_side_elements_item">
+                                <a href="./product/@item.Id" class="left_side_elements_link">@item.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="left_side_elements">
+                    <h2 class="left_side_elements_title">Rəng</h2>
+                    <ul class="left_side_elements_list">
+                        @foreach (var item in Model.ProductColors)
+                        {
+                            <li class="left_side_elements_item">
+                                <a href="./product/@item.Id" class="left_side_elements_link">@item.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="col-lg-9 col-12 main-content products_container">
+                <div class="products_sort">
+                    <select name="orderby" class="products_sort_select_list">
+                        <option value="popularity">Ən Populyar</option>
+                        <option value="date">Ən Yenilər</option>
+                        <option value="price-low">Bahadan Ucuza</option>
+                        <option value="price-high">Ucuzdan Bahaya</option>
+                    </select>
+                </div>
+
+                <div class="row cols-2 cols-sm-3 products justify-content-center">
+
+
+                    @foreach (var item in Model.Products)
+                    {
+
+                        <div class="product_card col-lg-4">
+                            <figure class="product_image">
+
+                                @* <a asp-action="details" asp-route-id="@item.Id">
+                            </a>*@
+                                <img src="~/uploads/images/products/@item.Images.FirstOrDefault().ImagePath">
+                                <div class="product_card_buttons">
+                                    <a href="#" class="add_to_favourites_button">
+                                        <i class="fa fa-heart"></i>
+                                    </a>
+                                    <a href="#" class="add_to_cart_button"
+                                   data-item-id="@item.Id"
+                                   data-item-name="@item.Name"
+                                   onclick="addToCart(event)">
+                                        <i class="fa fa-shopping-basket"></i>
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="product_details">
+                                <a href="#" class="product_name">@item.ShortDescription</a>
+                                <a href="#" class="product_category">@item.Brand?.Name</a>
+                                <a href="#" class="product_category">@item.Category?.Name</a>
+                                <div class="product_price">
+                                    <span class="product_price_new">29.99</span>
+                                    <span class="product_price_old">29.99₼ </span>
+                                </div>
+                            </div>
+
+                            <!-- <button class="add_to_favourites">
+                                <i class="fa fa-heart"></i>
+                              </button> -->
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<link rel="stylesheet" href="./assets/scss/products.css" />
+
+<link rel="stylesheet" href="./assets/scss/style.css" />
+
+
+
+@section js{
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        function addToCart(ev) {
+
+            ev.preventDefault();
+            ev.stopPropagation();
+
+            let data = $(ev.currentTarget).data();
+
+            addToBasket(data.itemId);
+            showCardCount();
+
+
+        }
+
+        function readFromBasket() {
+            return ($.cookie('cards') || '').split(',');
+        }
+
+        function addToBasket(cardId) {
+
+            let items = readFromBasket();
+            let length = items.filter(item => item == cardId).length;
+
+            if (length > 0) return;
+
+            items.push(cardId);
+
+
+            $.cookie('cards', items.toString(), { expires: 7, path: '/' });
+        }
+
+
+        function showCardCount(){
+
+
+            let items = readFromBasket();
+            console.log(items);
+
+            $('.nav_item_count').html(items.length-1);
+        }
+
+        showCardCount();
+
+    </script>
+                                }

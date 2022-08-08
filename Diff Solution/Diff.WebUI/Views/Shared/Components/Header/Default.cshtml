@@ -1,0 +1,65 @@
+﻿<!-- header -->
+<header class="header">
+    <div class="nav_container nav-container">
+        <div class="nav_menu_button">
+            <div class="nav_menu_button_burger"></div>
+        </div>
+        <div class="nav_logo">
+            <a asp-controller="home" asp-action="index">
+                <img src="~/assets/images/logos/logo-black.png"
+                     alt="logo-black"
+                     style="width: 80px; height: 80px" />
+            </a>
+        </div>
+        <div class="nav_icons">
+            <ul class="nav_list">
+                <li class="nav_item">
+                    <a class="nav-link" asp-controller="account" asp-action="signin">
+                        <img src="~/assets/images/icons/user.png"
+                             alt=""
+                             style="width: 22px; height: 22px" />
+                    </a>
+                    <div class="account_menu">
+                        <ul class="account_menu_list">
+                            <li class="account_menu_item">
+                                <h2 class="account_menu_user">İstifadəçi adı</h2>
+                            </li>
+                            <li class="account_menu_item">
+                                <a href="/parameters.html" class="account_menu_link">parametrler</a>
+                            </li>
+                            <li class="account_menu_item">
+                                <a href="/parameters.html" class="account_menu_link">parametrler</a>
+                            </li>
+                            <li class="account_menu_item">
+                                <a href="/parameters.html" class="account_menu_link">parametrler</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav_item">
+                    <a class="nav-link" href="./favourites.html">
+                        <img src="~/assets/images/icons/heart.png"
+                             alt=""
+                             style="width: 22px; height: 22px" />
+                    </a>
+                </li>
+
+                <li class="nav_item">
+                    <div class="nav_link cart_button">
+                        <a class="nav-link" asp-controller="shop" asp-action="cart">
+                            <img src="~/assets/images/icons/shopping-cart.png"
+                                 alt=""
+                                 style="width: 22px; height: 22px" />
+                        </a>
+                        <span class="nav_item_count"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+<!-- end of header -->
+
+<partial name="_Sidebar"/>

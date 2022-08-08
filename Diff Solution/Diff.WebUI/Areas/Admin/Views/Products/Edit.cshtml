@@ -1,0 +1,427 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <div class="d-inline">
+                    <h4>Məhsullar</h4>
+                    <span>Bütün məhsulların siyahısı</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a asp-controller="dashboard" asp-action="index"> <i class="feather icon-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a asp-controller="products" asp-action="index">Məhsullar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<!-- Page-body start -->
+<div class="page-body">
+    <!-- Hover table card start -->
+    <div class="card">
+        <div class="card-block">
+            <div class="card-block">
+                <form method="post" class="row" asp-action="Edit" enctype="multipart/form-data" id="productCreateForm">
+
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+
+                            <div class="form-group">
+                                <div style="width: 600px;" class="imager-container" id="viewer1" name="Images">
+
+
+                                    @foreach (var item in Model.Images)
+                                    {
+                                        <label thumb-url='/uploads/images/products/@item.ImagePath' image-id="@item.Id" @(item.IsMain ? " checked" : "")></label>
+
+                                    }
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label asp-for="Name" class="control-label"></label>
+                                    <input asp-for="Name" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="StockKeepingUnit" class="control-label"></label>
+                                    <input asp-for="StockKeepingUnit" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="BrandId" class="control-label"></label>
+                                    <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="ShortDescription" class="control-label"></label>
+                                    <input type="text" asp-for="ShortDescription" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="Description" class="control-label"></label>
+                                    <input type="text" asp-for="Description" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="CategoryId" class="control-label"></label>
+                                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <div class="tab-control" role="tabcontrol">
+                            <div class="tab-page" id="specifications" aria-title="Spesifikasiyalar" selected>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Göstərici</th>
+                                            <th>Dəyər</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in ViewBag.Specifications)
+                                        {
+                                            var specValue = Model.Specifications.FirstOrDefault(s => s.SpecificationId == item.Id)?.Value;
+
+                                            <tr>
+                                                <td>@item.Name</td>
+                                                <td>
+                                                    <input type="text"
+                                                       class="form-control w-100"
+                                                       value="@specValue"
+                                                       data-specification-id="@item.Id" />
+                                                </td>
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-page" id="pricings" aria-title="Qiymətləndirmə">
+                                <table class="table table-hover ">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Rəng
+                                            </th>
+                                            <th>
+                                                Ölçü
+                                            </th>
+                                            <th>
+                                                Qiymət
+                                            </th>
+                                            <th>
+                                                <button type="button" class="btn btn-success" onclick="createPricing(event)">Əlavə et</button>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @*  <tr>
+                                        <td>
+                                        <select asp-items="@ViewBag.ProductColors" class="form-control select2"></select>
+                                        </td>
+                                        <td>
+                                        <select asp-items="@ViewBag.ProductSizes" class="form-control select2"></select>
+                                        </td>
+                                        <td>
+                                        <input type="text" class="form-control w-1" />
+                                        </td>
+                                        <td>
+                                        <button class="btn btn-danger" onclick="removePricing(event)">Sil</button>
+                                        </td>
+                                        </tr>*@
+
+                                        @foreach (var item in Model.Pricing)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <select asp-items="@ViewBag.ProductColors" class="form-control select2" selected-id="@item.ProductColorId"></select>
+                                                </td>
+                                                <td>
+                                                    <select asp-items="@ViewBag.ProductSizes" class="form-control select2" selected-id="@item.ProductSizeId"></select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" value="@item.Price" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    @*<button class="btn btn-danger" onclick="removePricing(event)">Sil</button>*@
+                                                </td>
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="submit" value="Redaktə Et" class="btn btn-warning" />
+                            <a asp-action="Index" class="btn btn-primary">Geri Qayıt</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section css{
+    <link rel="stylesheet" type="text/css" href="~/admin/assets/libs/multiple-imager-js/css/imager.css" />
+    <link rel="stylesheet" type="text/css" href="~/admin/assets/libs/tab-control/tab-control.css" />
+    <style>
+
+        .error {
+            color: red;
+        }
+
+    </style>
+    }
+
+    @section js{
+    <script src="~/admin/assets/libs/multiple-imager-js/js/imager.js"></script>
+    <script src="~/admin/assets/libs/tab-control/tab-control.js"></script>
+
+      <script>
+
+        const selectProductColors = `@Html.DropDownList("ProductColorId",@ViewBag.ProductColors,null,htmlAttributes:new {
+                @class="form-control select2",
+                id="#s1#"
+                })`;
+        const selectProductSizes = `@Html.DropDownList("ProductSizeId",@ViewBag.ProductSizes,null,htmlAttributes:new {
+                @class="form-control select2",
+                id="#s2#"
+                })`;
+
+        $(document).ready(function () {
+
+
+            $('#viewer1').imgadd({
+                tnWidth: '120px',
+                tnHeight: '120px',
+                fontSize: '55px',
+                plusInnerHtml: '',
+                plusBtnClass: undefined
+            });
+
+            $('#pricings select').each(function (index, item) {
+                let selectedId = $(item).attr('selected-id');
+                $(item).val(selectedId).trigger('change');
+
+            });
+
+
+
+
+            $('#productCreateForm').submit(function (e) {
+
+                e.preventDefault();
+                const btn = $(e.currentTarget).find('input[type=submit]');
+
+                $(btn).attr('disable', 'disabled');
+
+                let formData = new FormData(e.currentTarget);
+
+                let indexer = 0;
+                $('input[data-specification-id]').each(function (index, item) {
+                    const id = $(item).data('specification-id');
+                    const value = $(item).val();
+
+
+                    if (value.length == 0)
+                        return;
+                    console.log(id, value);
+
+                    formData.set(`Specification[${indexer}].Id`, id);
+                    formData.set(`Specification[${indexer}].Value`, value);
+                    indexer++;
+                });
+
+                let pricing = [];
+                $('#pricings tbody tr').each(function (index, item) {
+                    const colorId = $(item).find('td:nth-child(1) select').val();
+                    const sizeId = $(item).find('td:nth-child(2) select').val();
+                    const value = $(item).find('td:nth-child(3) input').val();
+
+                    const filtered = pricing.filter((pItem) => {
+                        return pItem.colorId == colorId && pItem.sizeId == sizeId;
+                    });
+                    if (filtered.length > 0) {
+                        return;
+                    }
+                    pricing.push({
+                        colorId: colorId,
+                        sizeId: sizeId,
+                        price: value
+                    });
+                });
+                $(pricing).each(function (index,item) {
+                    formData.set(`Pricing[${index}].ProductSizeId`, item.sizeId);
+                    formData.set(`Pricing[${index}].ProductColorId`, item.colorId);
+                    formData.set(`Pricing[${index}].ProductPrice`, item.price);
+                });
+
+                $.ajax({
+                    url: '@Url.Action("Edit")',
+                    type: 'post',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    beforeSent: function (xhr) {
+
+                    },
+                    success: function (response) {
+                        if (response.error == undefined) {
+                            let errors = response.errors.map(err => {
+                                return {
+                                    propertyName: err.propertyName,
+                                    errorMessage: err.errorMessage
+                                };
+                            });
+
+                            showErrors(errors);
+                            return;
+                        }
+                        else if (response.error == true) {
+                            toastr.error(response.message, "Xəta!");
+                            $(btn).removeAttr('disable');
+                            return;
+                        }
+
+                        //e.currentTarget.reset();
+                        toastr.success(response.message, "Ugur");
+                        location.href = `@Url.Action("Index")`;
+                    },
+                    error: function (response) {
+                        $(btn).removeAttr('disable');
+                        console.warn(response);
+                    }
+                })
+                    .always(function () {
+
+                    });
+            });
+
+        });
+
+
+
+        function showErrors(errors) {
+            errors = errors.filter(function (item, index, arr) {
+                return arr.map(a => a.propertyName).indexOf(item.propertyName) == index;
+            });
+
+            console.log(errors);
+            $(`#productCreateForm span.error`).html('');
+
+            $(errors).each(function (index, item) {
+
+                const el = $(`#productCreateForm input[name="${item.propertyName}"]`);
+                $(el).focus(function () {
+                const elError = el.next();
+                    elError.html('');
+                });
+                let spanError = $(el).next('span.error');
+
+                if (spanError.length == 0) {
+                    spanError = $('<span/>', {
+                        class: 'error',
+                        style: 'color: crimson',
+                        html: item.errorMessage
+                    });
+
+                    $(spanError).insertAfter(el);
+                }
+                else {
+                    $(spanError).html(item.errorMessage);
+                }
+
+
+
+
+            });
+        }
+
+        function blurring(errors) {
+            $(`#productCreateForm input[name=""]`).focus(function (item) {
+                $(`#productCreateForm span.error`).html('');
+            });
+
+        }
+
+
+
+        function createPricing(e) {
+            e.preventDefault();
+
+            const tBody = $(e.currentTarget).closest('table').find('tbody');
+            const tr = $(`<tr>
+                            <td>${(selectProductColors.replace('#s1#',  newid()))}</td>
+                            <td>${(selectProductSizes.replace('#s2#',  newid()))}</td>
+                            <td><input type="text"/></td>
+                            </tr>`);
+
+
+            $(tr).find('.select2').each(function (index, item) {
+                $(item).select2();
+            })
+
+
+            $(tBody).append(tr);
+
+        }
+
+        function removePricing(e) {
+            if ($(e.currentTarget).closest('tbody').find('tr').length == 1)
+                return;
+
+            $(e.currentTarget).closest('tr').remove();
+        }
+
+        function newid() {
+            return "s"+'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+    </script>
+    }

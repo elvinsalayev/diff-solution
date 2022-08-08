@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Blogpost>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- blogs -->
+<main class="main blogs">
+
+    <div class="blogposts_title">
+        <h1 class="blogposts_title_text">Bloqlar</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 blog_posts">
+                <div class="row">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-12 post_container">
+                            <article class="post">
+                                <figure class="post_media">
+                                    <a asp-action="details" asp-route-id="@item.Id">
+                                        <img src="~/uploads/images/blogs/@item.ImagePath"
+                                         width="380"
+                                         height="280"
+                                         alt="post" />
+                                    </a>
+                                </figure>
+                                <div class="post_details">
+                                    <div class="post_meta">
+                                        <a href="#" class="post_date">@item.CreatedDate.ToString("MMM d, yyyy HH:mm")</a>
+                                        | <a href="#" class="post_comment"><span>2</span> Şərh</a>
+                                    </div>
+                                    <h4 class="post_title">
+                                        <a asp-action="details" asp-route-id="@item.Id">@item.Title</a>
+                                    </h4>
+                                    @Html.Raw(item.Body)
+                                    <a asp-action="details" asp-route-id="@item.Id" class="post_button btn btn-link">
+                                        Davamını oxu..<i class="d-icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    }
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- end of blogs -->

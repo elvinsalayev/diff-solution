@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap");
+@import url(../css/reset.css);
+@font-face {
+  font-family: "Futurica";
+  src: url("../fonts/Futurica.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+}
+
+body {
+  background-color: #e0e0e0;
+}/*# sourceMappingURL=blogs.css.map */

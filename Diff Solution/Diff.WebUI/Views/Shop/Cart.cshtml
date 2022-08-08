@@ -1,0 +1,114 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Cart";
+}
+
+
+<main class="cart">
+    <div class="cart_products_header">Səbət</div>
+    <div class="cart_products_container row">
+        <div class="cart_products_left col-lg-6 col-12">
+            <table class="table table-bordered cart_products_table">
+                <thead class="cart_products_table_header">
+                    <tr>
+                        <th class="cart_products_table_header_title">Məhsul</th>
+                        <th class="cart_products_table_header_title">Qiymət</th>
+                        <th class="cart_products_table_header_title">Ədəd</th>
+                        <th class="cart_products_table_header_title">Məbləğ</th>
+                    </tr>
+                </thead>
+                <tbody class="cart_products_table_body">
+
+                    @foreach (var item in Model)
+                    {
+                        <tr class="cart_products_table_body_row" data-item-price="@(item.Id+20)" data-item-quantity="1">
+                            <td class="cart_product_thumbnail_and_name cart_product_table_items">
+                                <figure class="cart_product_thumbnail">
+                                    <a href="#">
+                                        <img src="~/uploads/images/products/@item.Images.FirstOrDefault().ImagePath"
+                                         width="170"
+                                         height="215"
+                                         alt="product" />
+                                    </a>
+                                </figure>
+                                <div class="cart_product_name">
+                                    <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id" class="cart_product_name_link">@item.Name</a>
+                                </div>
+                            </td>
+                            <td class="cart_product_price cart_product_table_items">
+                                <p class="cart_product_price_amount">
+                                    <span class="cart_product_price_amount_value">@(item.Id+20)</span>₼
+                                </p>
+                            </td>
+                            <td class="cart_product_quantity cart_product_table_items">
+                                <div class="cart_product_inputs">
+                                    <button class="cart_product_quantity_minus" onclick="calculateQuantity(event)">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                    <input type="number" value="1" class="cart_product_quantity_number">
+                                    <button class="cart_product_quantity_plus" onclick="calculateQuantity(event)">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="cart_product_subtotal cart_product_table_items">
+                                <p class="cart_product_subtotal_amount">
+                                    <span class="cart_product_subtotal_amount_value">@(item.Id+20)</span>₼
+                                </p>
+                            </td>
+                            <td class="cart_product_remove_product cart_product_table_items">
+                                <a href="#" class="product_remove_button" onclick="removeProduct(event)">
+                                    <i class="fas fa-times"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="cart_products_right col-lg-6 col-12">
+            <form action="" class="cart_order_form">
+                <label for="" class="cart_order_form_label">Məlumatlarınızı daxil edin.</label>
+                <input type="text" name="address" class="cart_order_name cart_order_inputs" placeholder="Ad" />
+                <input type="text" name="address" class="cart_order_surname cart_order_inputs" placeholder="Soyad" />
+                <input type="text" name="phone" class="cart_order_phone cart_order_inputs" placeholder="Telefon" />
+                <input type="text" name="address" class="cart_order_address cart_order_inputs" placeholder="Ünvan" />
+                <input type="submit" value="Sifarişi Tamamla" class="cart_checkout_button" />
+            </form>
+
+
+        </div>
+    </div>
+</main>
+
+
+@section js{
+
+    <script>
+
+        function calculateQuantity(e) {
+            e.preventDefault();
+
+            let row = $(e.currentTarget).closest('tr');
+
+            let data = $(row).data();
+
+            let quantity = parseInt($(row).find('.cart_product_quantity_number')[0].value);
+
+            if (!isNaN(quantity)) {
+                $(row).data('itemQuantity', quantity);
+                
+            }
+            else {
+                return;
+            }
+
+                 
+            $(row).find('.cart_product_subtotal_amount_value').html(`${parseFloat(data.itemPrice) * (quantity+1)}`)
+
+            console.log(quantity);
+        };
+
+
+    </script>
+}

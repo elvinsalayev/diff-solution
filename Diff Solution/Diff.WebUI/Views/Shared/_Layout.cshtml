@@ -1,0 +1,228 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="~/assets/images/logos/favicon.png" />
+    <title>diff - ana səhifə</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet"
+          href="~/assets/vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css" />
+    <!-- font awesome css-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <!-- swiper css -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.0/swiper-bundle.css"
+          integrity="sha512-W3EpFysZWfMjkA5NIsJ1jQbd2CvZrEY0YRB16wlQdePUuxykf4E47/Yqajz2vkCRcMYkxY9+CHY6r2Al0AExBQ=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.0/swiper-bundle.min.css"
+          integrity="sha512-yc4PGj02iLvj10vj/LWAYicOfMW7vxfZgBw2O9Tur3hIym//P/HwOwNLcLsE5bL+yTo+qqWE8lvPmtKCF/twdw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="~/admin/assets/libs/toastr.js/toastr.min.css" />
+    @RenderSection("css",required:false)
+    <!-- custom css -->
+    <link rel="stylesheet" href="~/assets/scss/style.css" />
+</head>
+<body>
+    @await Component.InvokeAsync("Header")
+
+    @RenderBody()
+
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row align-items-center justify-content-evenly">
+                    <div class="footer_top_row col-lg-3">
+                        <div class="footer_logo">
+                            <img src="~/assets/images/logos/logo-green.png"
+                                 alt="footer logo"
+                                 style="width: 150px; height: 150px" />
+                        </div>
+                    </div>
+                    <div class="footer_top_row col-lg-9">
+                        <div class="footer_newsletter">
+                            <div class="footer_newsletter_info mx-auto mr-lg-2 ml-lg-4">
+                                <h4 class="footer_newsletter_title col-md-6">
+                                    Bizə abunə olun.
+                                </h4>
+                                <p class="footer_newsletter_text col-md-6">
+                                    Ən son yeniliklərdən və endirimlərdən xəbər alın.
+                                </p>
+                            </div>
+                            <form method="post" id="subscribe" class="footer_form mx-auto mr-lg-2 ml-2">
+                                <input type="email"
+                                       name=Email
+                                       id="email"
+                                       placeholder="Emailinizi yazın..."
+                                       class="footer_newsletter_email" />
+                                <input type="submit"
+                                       value="Abunə Ol"
+                                       class="footer_newsletter_submit" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_middle">
+            <div class="container">
+                <div class="row justify-content-evenly">
+                    <div class="footer_middle_row col-lg-4 col-md-6">
+                        <p class="footer_middle_title">Məlumat</p>
+                        <ul class="footer_middle_list">
+                            <li class="footer_middle_item">
+                                <a href="#" class="footer_middle_link">Tez-tez verilən suallar</a>
+                            </li>
+                            <li class="footer_middle_item">
+                                <a href="#" class="footer_middle_link">Saytın istifadə şərtləri</a>
+                            </li>
+                            <li class="footer_middle_item">
+                                <a href="#" class="footer_middle_link">Saytın xəritəsi</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer_middle_row col-lg-4 col-md-6">
+                        <p class="footer_middle_title">Müştərilər üçün</p>
+                        <ul class="footer_middle_list">
+                            <li class="footer_middle_item">
+                                <a href="" class="footer_middle_link">Çatdırılma və ödəniş</a>
+                            </li>
+                            <li class="footer_middle_item">
+                                <a href="" class="footer_middle_link">Geri qaytarma siyasəti</a>
+                            </li>
+                            <li class="footer_middle_item">
+                                <a href="" class="footer_middle_link">Zəmanət</a>
+                            </li>
+                            <li class="footer_middle_item">
+                                <a href="" class="footer_middle_link">Aylıq ödənişlərin üsulları</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer_middle_row col-lg-4 col-md-6">
+                        <p class="footer_middle_social_accounts_title">
+                            Sosial şəbəkələrdə bizi izləyin.
+                        </p>
+                        <ul class="footer_middle_social_list">
+                            <li class="footer_middle_social_item">
+                                <a href="#" class="footer_middle_social_link">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="footer_middle_social_item">
+                                <a href="#" class="footer_middle_social_link">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="footer_middle_social_item">
+                                <a href="#" class="footer_middle_social_link">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                            </li>
+                            <li class="footer_middle_social_item">
+                                <a href="#" class="footer_middle_social_link">
+                                    <i class="fa-brands fa-telegram"></i>
+                                </a>
+                            </li>
+                            <li class="footer_middle_social_item">
+                                <a href="#" class="footer_middle_social_link">
+                                    <i class="fa-brands fa-tiktok"></i>
+                                </a>
+                            </li>
+                            <li class="footer_middle_social_item">
+                                <a href="#" class="footer_middle_social_link">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="footer_bottom_row col-lg-12">
+                        <p class="footer_bottom_text">
+                            © 2020 Created by -
+                            <a href="#" class="footer_bottom_link"> &nbsp salayev</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end of footer -->
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jquery js -->
+    <script src="~/assets/vendors/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <!--ajax js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- swiper js -->
+    <script src="~/assets/vendors/Swiper/js/swiper-bundle.min.js"></script>
+
+    <!--scrollreveal js -->
+    <script src="~/assets/vendors/ScrollReveal/scrollreveal.min.js"></script>
+    <!--toastr js-->
+    <script src="~/admin/assets/libs/toastr.js/toastr.min.js"></script>
+    <!-- custom js -->
+    <script src="~/assets/js/script.js"></script>
+
+
+    <script>
+
+        $(document).ready(function() {
+            $('#subscribe').submit(function(e) {
+                e.preventDefault();
+
+                var formData = new FormData(e.currentTarget);
+
+                $.ajax({
+
+                    url: '@Url.Action("Subscribe","Home")',
+                    type: 'post',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        if (response.error == true) {
+                            toastr.error(response.message,'');
+                            return;
+                        }
+                        e.currentTarget.reset();
+                        toastr.success(response.message,'');
+                    },
+                    error: function() {
+                        toastr.success(response.message,'')
+                    }
+
+                })
+            })
+
+        })
+
+
+
+    </script>
+
+    @RenderSection("js", required:false)
+
+</body>
+</html>

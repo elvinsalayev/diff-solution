@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Faq>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<!-- faq -->
+<div class="faq_container container">
+    <div class="faq_container_title">
+        <h1 class="faq_container_text">FAQ</h1>
+        <h1 class="faq_container_description">
+            Sizin üçün tez-tez verilən sualları topladıq.
+        </h1>
+    </div>
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        @foreach (var item in Model)
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseOne">
+                        @item.Question
+                    </button>
+                </h2>
+                <div id="flush-collapseOne"
+                 class="accordion-collapse collapse"
+                 aria-labelledby="flush-headingOne"
+                 data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        @Html.Raw(item.Answer)
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+<!-- end of faq -->

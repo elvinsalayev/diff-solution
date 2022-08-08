@@ -1,0 +1,130 @@
+﻿@model PagedViewModel<Blogpost>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <div class="d-inline">
+                    <h4>Bloqlar</h4>
+                    <span>Bütün bloqların siyahısı</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a asp-controller="dashboard" asp-action="index"> <i class="feather icon-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a asp-controller="blogposts" asp-action="index">Bloqlar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<!-- Page-body start -->
+<div class="page-body">
+    <!-- Hover table card start -->
+    <div class="card">
+        <div class="card-block table-border-style">
+            
+            @Model.GetPagination(Url,"Index","Admin")
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Şəkil</th>
+                            <th>Başlıq</th>
+                            <th>Kateqoriya</th>
+                            <th>Mətn</th>
+                            <th class="table_operations">
+                                <a asp-action="create" class="btn btn-success btn-icon">
+                                    <i class="icofont-plus"></i>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr data-entity-id="@item.Id">
+
+                                <td class="cell-sm">
+                                    <img class="blogpost_image" src="~/uploads/images/blogs/@item.ImagePath" />
+                                </td>
+                                <td class="cell-sm">
+                                    @item.Title
+                                </td>
+                                <td class="cell-sm">
+                                    @item.Category.Name
+                                </td>
+                                <td class="cell-sm ellipse">
+                                    @item.Body.HtmlToPlainText().ToEllipse()
+                                </td>
+                                <td class="table_operations">
+                                    <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-secondary">
+                                        <i class="icofont-pencil-alt-2"></i>
+                                    </a>
+                                    <a asp-action="details" asp-route-id="@item.Id" class="btn btn-warning">
+                                        <i class="icofont-eye-alt"></i>
+                                    </a>
+                                    <a onclick="removeEntity(event,@item.Id,'@item.Title')" class="btn btn-danger">
+                                        <i class="icofont-ui-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <!-- Hover table card end -->
+
+</div>
+<!-- Page-body end -->
+@section js{
+    <script src="~/admin/assets/libs/sweetalert/sweetalert.min.js"></script>
+    <script>
+        function removeEntity(ev, entityId, name) {
+            swal({
+                title: "Silinsin??",
+                text: `${name} adlı fayl silinsə, geri qaytara bilməyəcəksiniz!`,
+                icon: "warning",
+                buttons: true,
+                buttons: ['Xeyr', 'Sil'],
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    //admin/blogposts/delete/1
+                    if (willDelete) {
+                        $.ajax({
+                            url: `@Url.Action("Delete")/${entityId}`,
+                            type: `post`,
+                            success: function(response) {
+                                if (response.error == true) {
+                                    toastr.error("", response.message)
+                                    return;
+                                }
+                                toastr.success("", response.message)
+                                $(`tr[data-entity-id=${entityId}]`).remove();
+                            },
+                        });
+                    }
+                });
+
+
+        }
+
+    </script>
+         }

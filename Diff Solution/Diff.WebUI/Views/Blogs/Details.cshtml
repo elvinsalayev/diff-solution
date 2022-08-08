@@ -1,0 +1,81 @@
+﻿@model SinglePostViewModel
+
+@{
+
+    ViewData["Title"] = "Details";
+}
+
+
+<main class="main single_post_container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="single_post">
+                    <figure class="single_post_image">
+                        <img  src="~/uploads/images/blogs/@Model.Post.ImagePath"
+                             alt=""
+                             class="img-fluid"
+                             style="width: 1000px" />
+                    </figure>
+                    <div class="single_post_meta">
+                        <p>Müəllif:</p>
+                        <a href="#" class="single_post_author">Elvin Salayev</a>
+                        <p>Tarix:</p>
+                        <a href="#" class="single_post_date">@Model.Post.CreatedDate.ToString("MMM d, yyyy HH:mm")</a>
+                        <a href="#" class="single_post_comment"><span>2</span> Şərh</a>
+                    </div>
+                    <h4 class="single_post_title">@Model.Post.Title</h4>
+                    <div class="single_post_text">
+                       @Html.Raw(Model.Post.Body)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="" class="single_post_comment_form">
+                        <input type="text"
+                               name=""
+                               id=""
+                               placeholder="Fikrini bildir..."
+                               class="single_post_comment_input form-control" />
+                        <input type="submit"
+                               value="Göndər"
+                               class="single_post_comment_submit" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="single_post_comments">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="single_post_comments_header">
+                        <div class="single_post_comments_item_image">
+                            <img  src="~/assets/images/blogs/blog-image-1.png"
+                                 alt=""
+                                 class="img-fluid"
+                                 style="width: 40px; height: 40px; border-radius: 50%" />
+                        </div>
+                        <div class="single_post_comments_item_text">
+                            <p>
+                                <a href="#" class="single_post_comments_item_author">
+                                    Elvin Salayev
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="single_post_comment">
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Suscipit porro quo nemo distinctio obcaecati nisi eius, ipsam
+                            ipsa officiis, neque iusto possimus mollitia atque rem minus,
+                            deleniti fugiat eos commodi!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

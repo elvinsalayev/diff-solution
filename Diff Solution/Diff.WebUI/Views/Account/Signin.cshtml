@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Signin";
+}
+
+<!-- main -->
+    <main class="main">
+      <!-- login -->
+      <section class="login_section">
+        <div class="login_section_container container">
+          <form method="post" class="login_form">
+            <h2 class="login_form_title">GİRİŞ</h2>
+
+            <div class="login_form_control">
+              <label>İstifadəçi adı və ya email</label>
+              <input
+                type="text"
+                name="name"
+                class="login_username_or_email login_item"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <span class="error_message"></span>
+            </div>
+
+            <div class="login_form_control">
+              <label>Şifrə</label>
+              <input
+                type="password"
+                name="name"
+                class="login_password login_item"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <span class="error_message"></span>
+            </div>
+
+            
+            <div class="login_forget_password">
+              <a href="#" class="login_forget_password_link" >Şifrəni unutdun?</a>
+            </div>
+            <button type="submit" class="login_form_submit">Daxil Ol</button>
+          </form>
+          <div class="register_link_container">
+            <a href="/register.html" class="register_link">Qeydiyyatdan keç</a>
+          </div>
+        </div>
+      </section>
+      <!-- end of login -->
+    </main>
+    <!-- end of main -->
