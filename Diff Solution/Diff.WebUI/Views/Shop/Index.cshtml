@@ -14,18 +14,37 @@
     </div>
     <div class="shop_container">
         <div class="row gutter-lg main-content-wrap">
-            <div class="col-lg-3 col-12 left_side">
+            <div class="col-lg-3 col-12 left_side ">
+                <div class="left_side_elements accordion-item">
+                    @*<h2 class="left_side_elements_title">Brend</h2>*@
 
-                <div class="left_side_elements">
-                    <h2 class="left_side_elements_title">Brend</h2>
-                    <ul class="left_side_elements_list">
-                        @foreach (var item in Model.Brands)
-                        {
-                            <li class="left_side_elements_item">
-                                <a href="./product/@item.Id" class="left_side_elements_link">@item.Name</a>
-                            </li>
-                        }
-                    </ul>
+                    <h2 class="accordion-header left_side_elements_title" id="flush-headingOne">
+                        <button class="left_side_elements_title accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne"
+                                aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                            Brend
+                        </button>
+                    </h2>
+
+                    <div id="flush-collapseOne"
+                         class="accordion-collapse collapse"
+                         aria-labelledby="flush-headingOne"
+                         data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+
+                            <ul class="left_side_elements_list">
+                                @foreach (var item in Model.Brands)
+                                {
+                                    <li class="left_side_elements_item">
+                                        <a href="./product/@item.Id" class="left_side_elements_link">@item.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="left_side_elements">
@@ -102,7 +121,7 @@
                                 </div>
                             </figure>
                             <div class="product_details">
-                                <a href="#" class="product_name">@item.ShortDescription</a>
+                                <a href="#" class="product_name">@item.Name</a>
                                 <a href="#" class="product_category">@item.Brand?.Name</a>
                                 <a href="#" class="product_category">@item.Category?.Name</a>
                                 <div class="product_price">
@@ -166,13 +185,13 @@
         }
 
 
-        function showCardCount(){
+        function showCardCount() {
 
 
             let items = readFromBasket();
             console.log(items);
 
-            $('.nav_item_count').html(items.length-1);
+            $('.nav_item_count').html(items.length - 1);
         }
 
         showCardCount();

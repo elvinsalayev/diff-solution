@@ -94,14 +94,13 @@ namespace Diff.WebUI.Models.DataContexts
             {
                 db.PostTags.AddRange(new[]
                 {
-                    new PostTag{ Name="Bag"},
-                    new PostTag{ Name="Clasic"},
-                    new PostTag{ Name="Converse"},
-                    new PostTag{ Name="Leather"},
-                    new PostTag{ Name="Green"},
-                    new PostTag{ Name="Fit"},
-                    new PostTag{ Name="Men"},
-                    new PostTag{ Name="Women"},
+                    new PostTag{ Name="Diff"},
+                    new PostTag{ Name="Marvel"},
+                    new PostTag{ Name="DC"},
+                    new PostTag{ Name="Stranger Things"},
+                    new PostTag{ Name="Mercedes-Benz"},
+                    new PostTag{ Name="BMW"},
+                    new PostTag{ Name="Porsche"}
                 });
                 db.SaveChanges();
             }

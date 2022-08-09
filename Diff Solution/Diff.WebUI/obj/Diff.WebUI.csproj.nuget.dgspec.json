@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\Diff Solution\\Diff.WebUI\\Diff.WebUI.csproj": {}
+    "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\diff-solution\\Diff Solution\\Diff.WebUI\\Diff.WebUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\Diff Solution\\Diff.WebUI\\Diff.WebUI.csproj": {
+    "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\diff-solution\\Diff Solution\\Diff.WebUI\\Diff.WebUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\Diff Solution\\Diff.WebUI\\Diff.WebUI.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\diff-solution\\Diff Solution\\Diff.WebUI\\Diff.WebUI.csproj",
         "projectName": "Diff.WebUI",
-        "projectPath": "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\Diff Solution\\Diff.WebUI\\Diff.WebUI.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\diff-solution\\Diff Solution\\Diff.WebUI\\Diff.WebUI.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\Diff Solution\\Diff.WebUI\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\development\\back-end\\project\\diff-solution\\Diff Solution\\Diff.WebUI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

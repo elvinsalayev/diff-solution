@@ -7,10 +7,12 @@
 
 <!-- blogs -->
 <main class="main blogs">
-
     <div class="blogposts_title">
         <h1 class="blogposts_title_text">Bloqlar</h1>
-    </div>
+        <h1 class="blogposts_title_description">
+          Ən maraqlı mövzuları sizin üçün seçdik.
+        </h1>
+      </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 blog_posts">
@@ -36,7 +38,7 @@
                                     <h4 class="post_title">
                                         <a asp-action="details" asp-route-id="@item.Id">@item.Title</a>
                                     </h4>
-                                    @Html.Raw(item.Body)
+                                    @Html.Raw((item.Body).ToEllipse(400))
                                     <a asp-action="details" asp-route-id="@item.Id" class="post_button btn btn-link">
                                         Davamını oxu..<i class="d-icon-arrow-right"></i>
                                     </a>

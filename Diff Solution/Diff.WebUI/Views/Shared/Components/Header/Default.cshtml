@@ -14,27 +14,12 @@
         <div class="nav_icons">
             <ul class="nav_list">
                 <li class="nav_item">
-                    <a class="nav-link" asp-controller="account" asp-action="signin">
+                    <a class="nav-link account_icon">
                         <img src="~/assets/images/icons/user.png"
                              alt=""
                              style="width: 22px; height: 22px" />
                     </a>
-                    <div class="account_menu">
-                        <ul class="account_menu_list">
-                            <li class="account_menu_item">
-                                <h2 class="account_menu_user">İstifadəçi adı</h2>
-                            </li>
-                            <li class="account_menu_item">
-                                <a href="/parameters.html" class="account_menu_link">parametrler</a>
-                            </li>
-                            <li class="account_menu_item">
-                                <a href="/parameters.html" class="account_menu_link">parametrler</a>
-                            </li>
-                            <li class="account_menu_item">
-                                <a href="/parameters.html" class="account_menu_link">parametrler</a>
-                            </li>
-                        </ul>
-                    </div>
+               
                 </li>
 
                 <li class="nav_item">
@@ -63,3 +48,4 @@
 <!-- end of header -->
 
 <partial name="_Sidebar"/>
+<partial name="_AccountDropdownMenu"/>

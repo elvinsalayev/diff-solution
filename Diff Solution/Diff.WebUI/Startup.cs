@@ -3,6 +3,7 @@ using Diff.WebUI.Models.DataContexts;
 using Diff.WebUI.Models.Entities.Membership;
 using FluentValidation.AspNetCore;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -49,7 +50,8 @@ namespace Diff.WebUI
             });
 
             services.AddIdentity<DiffUser, DiffRole>()
-                .AddEntityFrameworkStores<DiffDbContext>();
+                .AddEntityFrameworkStores<DiffDbContext>()
+                .AddDefaultTokenProviders();
 
 
             services.AddMediatR(this.GetType().Assembly);
@@ -57,7 +59,7 @@ namespace Diff.WebUI
             services.AddScoped<UserManager<DiffUser>>();
             services.AddScoped<SignInManager<DiffUser>>();
             services.AddScoped<RoleManager<DiffRole>>();
-
+            services.AddScoped<IClaimsTransformation, AppClaimProvider>();
             //services.AddSignalR();
 
             services.AddFluentValidation(cfg =>
@@ -70,7 +72,7 @@ namespace Diff.WebUI
             {
                 cfg.User.RequireUniqueEmail = true;
                 //cfg.User.AllowedUserNameCharacters = true;
-                cfg.Password.RequireNonAlphanumeric = true;
+                cfg.Password.RequireNonAlphanumeric = false;
                 cfg.Password.RequireLowercase = false;
                 cfg.Password.RequireUppercase = false;
                 cfg.Password.RequiredLength = 8;
@@ -94,6 +96,24 @@ namespace Diff.WebUI
                 cfg.Cookie.HttpOnly = true;
                 cfg.ExpireTimeSpan = new TimeSpan(0, 10, 0);
 
+
+            });
+
+            services.AddAuthentication();
+            services.AddAuthorization(cfg =>
+            {
+
+                foreach (var policyName in Program.principals)
+                {
+                    cfg.AddPolicy(policyName, p =>
+                    {
+                        p.RequireAssertion(handler =>
+                        {
+                            return handler.User.IsInRole("SuperAdmin")
+                            || handler.User.HasClaim(policyName, "1");
+                        });
+                    });
+                }
 
             });
         }

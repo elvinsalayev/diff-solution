@@ -1,0 +1,100 @@
+﻿@model RegisterFormModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+ <!-- main -->
+    <main class="main">
+      <section class="register_section">
+        <div class="register_section_container container">
+          <form method="post" class="register_form">
+            <h2 class="register_form_title">QEYDİYYAT</h2>
+            <div asp-validation-summary="All"></div>
+                @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
+                {
+                    <div class="form-group mb-3">
+                        <div class="alert alert-danger text-white">
+                            @ViewBag.Message
+                        </div>
+                    </div>
+                }
+            <div class="register_form_control">
+              <label asp-for="Name">Ad</label>
+              <input
+                asp-for="Name"
+                name="name"
+                placeholder="Elvin"
+                class="register_name register_item"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <span class="error_message"></span>
+            </div>
+            <div class="register_form_control">
+              <label asp-for="Surname">Soyad</label>
+              <input
+                asp-for="Surname"
+                name="surname"
+                placeholder="Salayev"
+                class="register_surname register_item"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <span class="error_message"></span>
+            </div>
+            <div class="register_form_control">
+              <label asp-for="Username">İstifadəçi adı</label>
+              <input
+                asp-for="Username"
+                name="username"
+                placeholder="salayev_elvin"
+                class="register_username register_item"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <span asp-validation-for="Username" class="error_message"></span>
+            </div>
+            <div class="register_form_control">
+              <label asp-for="Email">Email</label>
+              <input
+                asp-for="Email"
+                name="email"
+                placeholder="elvin_salayev@gmail.com"
+                class="register_email register_item"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <span class="error_message"></span>
+            </div>
+            <div class="register_form_control">
+              <label asp-for="Password">Şifrə</label>
+              <input
+                asp-for="Password"
+                name="password"
+                placeholder="********"
+                class="register_password register_item"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <span class="error_message"></span>
+            </div>
+            <div class="register_form_control">
+              <label asp-for="ConfirmPassword">Təkrar şifrə</label>
+              <input
+                asp-for="ConfirmPassword"
+                name="confirmpassword"
+                placeholder="********"
+                class="register_password_again register_item"
+              />
+
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <span class="error_message"></span>
+            </div>
+            <button type="submit" class="register_form_submit">Qeyd Ol</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- end of main -->
+
