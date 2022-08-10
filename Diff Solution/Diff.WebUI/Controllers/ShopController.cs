@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Diff.WebUI.Controllers
 {
@@ -57,6 +58,23 @@ namespace Diff.WebUI.Controllers
 
             return View(new List<Product>());
 
+        }
+
+        public async Task<IActionResult> SearchInput(string key)
+        {
+            List<Product> products = new List<Product>();
+            if (key != null)
+            {
+                products = await db.Products
+                .Where(p => p.Name.Contains(key)
+                || p.ShortDescription.Contains(key)
+                || p.Category.Name.Contains(key)
+                || p.Brand.Name.Contains(key))
+                .Include(p => p.Images)
+                .Include(p => p.Category)
+                .ToListAsync();
+            }
+            return PartialView("_ProductListPartial", products);
         }
 
         private bool CheckIsNumber(string value)

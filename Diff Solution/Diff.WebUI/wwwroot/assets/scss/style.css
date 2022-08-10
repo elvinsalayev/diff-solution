@@ -272,10 +272,10 @@ body {
 .account_dropdown_menu_login_success li:nth-child(1) a {
   color: white;
 }
-.account_dropdown_menu_login_success li:nth-child(2):hover, .account_dropdown_menu_login_success li:nth-child(3):hover {
-  background-color: rgba(0, 0, 0, 0.507);
-}
-.account_dropdown_menu_login_success li:nth-child(4):hover {
+    .account_dropdown_menu_login_success li:nth-child(2):hover, .account_dropdown_menu_login_success li:nth-child(3):hover, .account_dropdown_menu_login_success li:nth-child(4):hover {
+        background-color: rgba(0, 0, 0, 0.507);
+    }
+.account_dropdown_menu_login_success li:last-child:hover {
   background-color: red;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -1182,6 +1182,10 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+
+
+
+
 .faq_container {
   width: 100%;
   padding: 30px;
@@ -1717,27 +1721,3 @@ body {
         transition: all 0.3s ease-in-out;
     }
 
-
-
-.accordion-flush {
-    margin: auto;
-    padding: 50px 0;
-}
-
-    .accordion-flush .accordion-button {
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: black;
-        padding: 30px 0;
-        text-decoration: none;
-        transition: all 0.3s ease-in-out;
-        outline: none;
-        border: none;
-        background: none;
-    }
-
-        .accordion-flush .accordion-button:focus {
-            outline: none;
-            border: none;
-            box-shadow: none;
-        }

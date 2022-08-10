@@ -3,6 +3,10 @@
 {
     <ul class="account_dropdown_menu_login_success">
         <li><a class="account_dropdown_item" href="./account.html">@User.GetPrincipalName()</a></li>
+        @if (User.GetPrincipalName() == "Super Admin")
+        {
+            <li><a class="account_dropdown_item" asp-controller="admin" asp-action="index">Admin Panel</a></li>
+        }
         <li><a class="account_dropdown_item" href="./settings.html">Tənzimləmələr</a></li>
         <li><a class="account_dropdown_item" href="#">Mesajlar(tezliklə)</a></li>
         <li><a class="account_dropdown_item" asp-controller="Account" asp-action="LogOut">Çıxış</a></li>

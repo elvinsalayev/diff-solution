@@ -90,7 +90,7 @@ namespace Diff.WebUI.Areas.Admin.Controllers
                 return Json(new
                 {
                     error = true,
-                    message = "Xətalı Sorğu"
+                    message = "Xəta!"
                 });
             }
             var role = await db.Roles.FirstOrDefaultAsync(r => r.Id == roleId);
@@ -99,7 +99,7 @@ namespace Diff.WebUI.Areas.Admin.Controllers
                 return Json(new
                 {
                     error = true,
-                    message = "Xətalı Sorğu"
+                    message = "Xəta!"
                 });
             }
 
@@ -170,7 +170,7 @@ namespace Diff.WebUI.Areas.Admin.Controllers
                 return Json(new
                 {
                     error = true,
-                    message = "Xətalı Sorğu"
+                    message = "Xəta!"
                 });
             }
 
@@ -179,7 +179,7 @@ namespace Diff.WebUI.Areas.Admin.Controllers
                 return Json(new
                 {
                     error = true,
-                    message = "Xətalı Sorğu"
+                    message = "Xəta!"
                 });
             }
 

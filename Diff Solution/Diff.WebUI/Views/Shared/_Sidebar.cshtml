@@ -5,14 +5,17 @@
         Bağla
     </div>
     <div class="search_bar">
-        <form action="#" class="search_bar_form">
-            <input type="text"
+        <form method="post" enctype="multipart/form-data" id="searchForm" asp-controller="Shop" asp-action="SearchInput" class="search_bar_form">
+            <input id="searchBtn" type="text"
                    class="search_bar_input"
                    name="search"
                    autocomplete="off"
                    placeholder="Search..."
                    required="" />
         </form>
+
+    </div>
+    <div id="productList" class="row">
     </div>
     <ul class="sidebar_menu_list">
         <li class="sidebar_menu_item">

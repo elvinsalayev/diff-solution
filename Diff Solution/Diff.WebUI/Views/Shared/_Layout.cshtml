@@ -185,10 +185,18 @@
     <!-- custom js -->
     <script src="~/assets/js/script.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
 
         $(document).ready(function() {
+            function showCardCount() {
+                let items = readFromBasket();
+                $('.nav_item_count').html(items.length - 1);
+            }
+            function readFromBasket() {
+                return ($.cookie('cards') || '').split(',');
+            }   
             $('#subscribe').submit(function(e) {
                 e.preventDefault();
 
@@ -203,14 +211,14 @@
                     contentType: false,
                     success: function(response) {
                         if (response.error == true) {
-                            toastr.error(response.message,'');
+                            toastr.error(response.message, '');
                             return;
                         }
                         e.currentTarget.reset();
-                        toastr.success(response.message,'');
+                        toastr.success(response.message, '');
                     },
                     error: function() {
-                        toastr.success(response.message,'')
+                        toastr.success(response.message, '')
                     }
 
                 })
@@ -221,7 +229,18 @@
 
 
     </script>
-
+    <script>
+        $(document).on("keyup", "#searchBtn", function(e) {
+            e.preventDefault()
+            console.log($(this).val())
+            let url = $("#searchForm").attr("action");
+            fetch(url + "?key=" + $(this).val()).then(res => {
+                return res.text()
+            }).then(data => {
+                $("#productList").html(data)
+            })
+        })
+    </script>
     @RenderSection("js", required:false)
 
 </body>

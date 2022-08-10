@@ -21,7 +21,7 @@
 
                     @foreach (var item in Model)
                     {
-                        <tr class="cart_products_table_body_row" data-item-price="@(item.Id+20)" data-item-quantity="1">
+                        <tr class="cart_products_table_body_row" data-entity-id="@item.Id" data-price="@(item.Id+20)" data-quantity="1">
                             <td class="cart_product_thumbnail_and_name cart_product_table_items">
                                 <figure class="cart_product_thumbnail">
                                     <a href="#">
@@ -42,22 +42,22 @@
                             </td>
                             <td class="cart_product_quantity cart_product_table_items">
                                 <div class="cart_product_inputs">
-                                    <button class="cart_product_quantity_minus" onclick="calculateQuantity(event)">
+                                    <button class="cart_product_quantity_minus" onclick="minusQuantity(event)">
                                         <i class="fa fa-minus"></i>
                                     </button>
-                                    <input type="number" value="1" class="cart_product_quantity_number">
-                                    <button class="cart_product_quantity_plus" onclick="calculateQuantity(event)">
+                                    <span class="quantity">1</span>
+                                    <button class="cart_product_quantity_plus" onclick="plusQuantity(event)">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
                             </td>
-                            <td class="cart_product_subtotal cart_product_table_items">
+                            <td class="cart_product_subtotal product-price cart_product_table_items">
                                 <p class="cart_product_subtotal_amount">
-                                    <span class="cart_product_subtotal_amount_value">@(item.Id+20)</span>₼
+                                    <span class="cart_product_subtotal_amount_value amount">@(item.Id+20)</span>₼
                                 </p>
                             </td>
                             <td class="cart_product_remove_product cart_product_table_items">
-                                <a href="#" class="product_remove_button" onclick="removeProduct(event)">
+                                <a href="#" class="product_remove_button" onclick="removeEntity(@item.Id)">
                                     <i class="fas fa-times"></i>
                                 </a>
                             </td>
@@ -83,31 +83,89 @@
 
 
 @section js{
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
 
-        function calculateQuantity(e) {
-            e.preventDefault();
+        //function setTotalPrice() {
+        //    let items = document.querySelectorAll('.amount');
+        //    let totalPrice = 0;
+        //    for (var i = 0; i < items.length; i++) {
+        //        totalPrice = totalPrice + parseInt(items[i].textContent);
+        //    }
+        //    $('#totalPrice').html(`${totalPrice}₼`);
+        //    console.log(totalPrice);
+        //}
+        //setTotalPrice();
+        function showCardCount() {
+            let items = readFromBasket();
+            $('.nav_item_count').html(items.length - 1);
+        }
+        function readFromBasket() {
+            return ($.cookie('cards') || '').split(',');
+        }
+        function removeEntity(entityId) {
+            let items = readFromBasket();
+            let id = entityId.toString();
+            const index = items.indexOf(id);
+            if (index > -1) {
+                items.splice(index, 1);
+            }
+            $.cookie('cards', items.toString(), { expires: 7, path: '/' });
 
+            $.ajax({
+                success: function (response) {
+                    if (response.error == true) {
+                        toastr.error(response.message, "Error!");
+                        return;
+                    }
+                    toastr.success("Successfully Deleted", response.message)
+                    $(`tr[data-entity-id=${entityId}]`).remove();
+                    showCardCount();
+                    //setTotalPrice();
+                    checkCart();
+                },
+                error: function (response) {
+                    toastr["error"]("Unsuccessfully", "Data has not been deleted")
+                }
+            })
+        }
+        function plusQuantity(e) {
+            e.preventDefault();
             let row = $(e.currentTarget).closest('tr');
 
             let data = $(row).data();
 
-            let quantity = parseInt($(row).find('.cart_product_quantity_number')[0].value);
-
+            let quantity = $(row).find('span.quantity').html();
             if (!isNaN(quantity)) {
-                $(row).data('itemQuantity', quantity);
-                
+                quantity++;
+                $(row).data('quantity', quantity);
             }
-            else {
+            $(row).find('span.quantity').html(quantity);
+            $(row).find('td.product-price .amount').html(`${(data.price * quantity)}`)
+            //setTotalPrice();
+            console.log(data);
+        }
+        function minusQuantity(e) {
+            e.preventDefault();
+            let row = $(e.currentTarget).closest('tr');
+
+            let data = $(row).data();
+
+            let quantity = $(row).find('span.quantity').html();
+            if (quantity == 1) {
                 return;
             }
-
-                 
-            $(row).find('.cart_product_subtotal_amount_value').html(`${parseFloat(data.itemPrice) * (quantity+1)}`)
-
-            console.log(quantity);
-        };
+            if (!isNaN(quantity)) {
+                quantity--;
+                $(row).data('quantity', quantity);
+            }
+            $(row).find('span.quantity').html(quantity);
+            $(row).find('td.product-price .amount').html(`${(data.price * quantity)}`)
+            //setTotalPrice();
+            console.log(data);
+        }
+        
 
 
     </script>

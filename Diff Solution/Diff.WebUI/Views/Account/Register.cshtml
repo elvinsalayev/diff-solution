@@ -7,7 +7,7 @@
     <main class="main">
       <section class="register_section">
         <div class="register_section_container container">
-          <form method="post" class="register_form">
+          <form method="post" asp-action="register" class="register_form">
             <h2 class="register_form_title">QEYDİYYAT</h2>
             <div asp-validation-summary="All"></div>
                 @if (!string.IsNullOrWhiteSpace(ViewBag.Message))

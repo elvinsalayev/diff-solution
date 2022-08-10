@@ -399,3 +399,4 @@ C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Dif
 C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Index.cshtml.g.cs
 C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Details.cshtml.g.cs
 C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_AccountDropdownMenu.cshtml.g.cs
+C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\obj\Debug\net5.0\Razor\Views\Shop\_ProductListPartial.cshtml.g.cs
