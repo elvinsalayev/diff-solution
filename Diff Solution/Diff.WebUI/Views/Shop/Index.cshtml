@@ -1,7 +1,7 @@
 ﻿@model ShopIndexViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "məhsullar";
 }
 
 
@@ -14,27 +14,25 @@
     </div>
     <div class="shop_container">
         <div class="row gutter-lg main-content-wrap">
-            <div class="col-lg-3 col-12 left_side accordion-flush">
-                <div class="left_side_elements accordion-item">
-                    @*<h2 class="left_side_elements_title">Brend</h2>*@
+            <div class="col-lg-3 col-12 left_side">
+                <div class="left_side_accordion">
+                    <div class="left_side_accordion_content active">
+                        <div class="left_side_accordion_label">Kateqoriyalar</div>
+                        <div class="left_side_accordion_list">
+                            <ul class="left_side_elements_list">
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <li class="left_side_elements_item">
+                                        <a href="./product/@item.Id" class="left_side_elements_link">@item.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
 
-                    <h2 class="accordion-header left_side_elements_title" id="flush-headingOne">
-                        <button class="left_side_elements_title accordion-button collapsed"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseOne"
-                                aria-expanded="false"
-                                aria-controls="flush-collapseOne">
-                            Brend
-                        </button>
-                    </h2>
-
-                    <div id="flush-collapseOne"
-                         class="accordion-collapse collapse"
-                         aria-labelledby="flush-headingOne"
-                         data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-
+                    <div class="left_side_accordion_content active">
+                        <div class="left_side_accordion_label">Brend</div>
+                        <div class="left_side_accordion_list">
                             <ul class="left_side_elements_list">
                                 @foreach (var item in Model.Brands)
                                 {
@@ -45,46 +43,46 @@
                             </ul>
                         </div>
                     </div>
+
+                    <div class="left_side_accordion_content active">
+                        <div class="left_side_accordion_label">Rəng</div>
+                        <div class="left_side_accordion_list">
+                            <ul class="left_side_elements_list">
+                                @foreach (var item in Model.ProductColors)
+                                {
+                                    <li class="left_side_elements_item">
+                                        <a href="./product/@item.Id" class="left_side_elements_link">@item.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="left_side_accordion_content active">
+                        <div class="left_side_accordion_label">Ölçü</div>
+                        <div class="left_side_accordion_list">
+                            <ul class="left_side_elements_list">
+
+                                @foreach (var item in Model.ProductSizes)
+                                {
+                                    <li class="left_side_elements_item">
+                                        <a href="./product/@item.Id" class="left_side_elements_link">@item.ShortName</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="left_side_accordion_content active">
+                        <div class="left_side_accordion_label">Material</div>
+                        <div class="left_side_accordion_list">
+                            <ul>
+                                <li>Cotton</li>
+                                <li>Syntetic</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="left_side_elements">
-                    <h2 class="left_side_elements_title">Ölçü</h2>
-                    <ul class="left_side_elements_list">
-
-                        @foreach (var item in Model.ProductSizes)
-                        {
-                            <li class="left_side_elements_item">
-                                <a href="./product/@item.Id" class="left_side_elements_link">@item.ShortName</a>
-                            </li>
-                        }
-                    </ul>
-                </div>
-
-                <div class="left_side_elements">
-                    <h2 class="left_side_elements_title">Kateqoriya</h2>
-                    <ul class="left_side_elements_list">
-                        @foreach (var item in Model.Categories)
-                        {
-                            <li class="left_side_elements_item">
-                                <a href="./product/@item.Id" class="left_side_elements_link">@item.Name</a>
-                            </li>
-                        }
-                    </ul>
-                </div>
-
-                <div class="left_side_elements">
-                    <h2 class="left_side_elements_title">Rəng</h2>
-                    <ul class="left_side_elements_list">
-                        @foreach (var item in Model.ProductColors)
-                        {
-                            <li class="left_side_elements_item">
-                                <a href="./product/@item.Id" class="left_side_elements_link">@item.Name</a>
-                            </li>
-                        }
-                    </ul>
-                </div>
-
-
             </div>
             <div class="col-lg-9 col-12 main-content products_container">
                 <div class="products_sort">
@@ -105,9 +103,10 @@
                         <div class="product_card col-lg-4">
                             <figure class="product_image">
 
-                                @* <a asp-action="details" asp-route-id="@item.Id">
-                            </a>*@
-                                <img src="~/uploads/images/products/@item.Images.FirstOrDefault().ImagePath">
+                                <a asp-action="productdetails" asp-route-id="@item.Id">
+                                    <img src="~/uploads/images/products/@item.Images.FirstOrDefault().ImagePath">
+                                </a>
+
                                 <div class="product_card_buttons">
                                     <a href="#" class="add_to_favourites_button">
                                         <i class="fa fa-heart"></i>

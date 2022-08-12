@@ -1,0 +1,74 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "";
+}
+
+
+<!-- product single -->
+<div class="product_single_section container">
+    <div class="product_single_title">
+        <h1 class="product_single_title_text">Məhsula baxış</h1>
+        <h1 class="product_single_title_description">
+            Məhsul haqqında məlumatlar.
+        </h1>
+    </div>
+    <div class="product_single row mb-5">
+        <div class="col-md-6 product_single_left_side">
+            <figure class="product_single_image">
+                <img src="~/uploads/images/products/@Model.Images.FirstOrDefault(i=>i.IsMain==true).ImagePath" alt="" />
+            </figure>
+        </div>
+        <div class="col-md-6 product_single_right_side">
+            <div class="product_single_details">
+                <p class="product_single_name">
+                    @Model.Name
+                    <span class="product_single_category"> @Model.Category.Name</span>
+                </p>
+                <p class="product_single_brand"><span>@Model.Brand.Name</span></p>
+            </div>
+
+            <div class="product_single_price"><span>@(Model.Id+20)</span> ₼</div>
+            <div class="product_single_add_to_cart">
+                <div class="product_single_add_to_cart_button">
+                    <i class="fa fa-shopping-basket"></i>
+                    <p>Səbətə Əlavə Et</p>
+                </div>
+
+                <div class="product_single_quantity">
+                    <button class="product_single_quantity_minus">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <span class="product_single_quantity_number">0</span>
+                    <button class="product_single_quantity_plus">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product_single_add_to_favourite_button">
+                <i class="fa fa-heart"></i>
+                <p>Favoritlərə Əlavə Et</p>
+            </div>
+            <div class="product_single_short_description">
+                AÇIQLAMA:
+                <span>
+                    @Model.ShortDescription
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="product_single_description row mb-5">
+        <div class="col-md-12">
+            <div class="product_single_description">
+                <h2 class="product_single_description_title">
+                    Məhsulun Əlavə Məlumatları
+                </h2>
+
+                <p class="product_single_description_text">
+                    @Model.Description
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of product single -->

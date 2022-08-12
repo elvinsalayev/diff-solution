@@ -1,32 +1,24 @@
-﻿<style>
-    .image {
-        width: 65px;
-        height: 65px;
-        background-size: cover;
-    }
-</style>
+﻿@model List<Product>
 
-@model List<Product>
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-            <ul id="search-ul" style="position: absolute; left: 25%; width: 40%; z-index: 99; top:20%;" class="list-group">
+            <ul class="search_ul" id="search-ul">
                 @foreach (Product product in Model)
                 {
-                    @if (product.DeletedById==null)
+                    @if (product.DeletedById == null)
                     {
                         var imagePath = product.Images.FirstOrDefault(i => i.IsMain).ImagePath;
-                        <li class="list-group-item" style="background-color: white;">
-                            <a asp-action="singleproduct" asp-route-id="@product.Id" class="d-flex align-items-center ">
-                                <div style="width:30%;">
-                                    <img class="image" src="~/uploads/images/products/@imagePath" />
-                                </div>
-                                <div>
-                                    <h6 style=" margin:0px; font-family:Arial, Helvetica, sans-serif;">Məhsulun adı: @product.Name</h6>
-                                    <p style=" color: black; margin: 0px;">Məhsulun Kateqoriyası: @product.Category.Name</p>
-                                </div>
-                            </a>
-                        </li>
+                       <li class="search_ul_list_item">
+                    <a class="search_ul_list_item_link d-flex align-items-center"
+                       asp-action="singleproduct" asp-route-id="@product.Id">
+                        
+                            <img class="search_ul_list_item_image"
+                                 src="~/uploads/images/products/@imagePath" />
+                        
+                            <h6 class="search_ul_list_item_name">@product.Name</h6>
+                    </a>
+                </li>
                     }
                 }
             </ul>

@@ -1,10 +1,137 @@
 ﻿@model IEnumerable<Faq>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "tez-tez verilən suallar";
 }
 
 
+<!-- faq -->
+    <div class="faq_container container">
+      <div class="faq_container_title">
+        <h1 class="faq_container_title_text">F A Q</h1>
+        <h1 class="faq_container_title_description">
+          Tez-tez verilən sualların cavabları.
+        </h1>
+      </div>
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
+            >
+              Malımı necə geri qaytara bilərəm?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              <p>
+                Malın geri qaytarılması proseduru: Alıcı müvafiq tələblə *******
+                qaynar xəttinə müraciət edir və malı qaytarmaq istəyi barədə
+                məlumat verir. O, operatorun göstərişinə uyğun olaraq istənilən
+                mağazamıza gedib mağazadakı məsləhətçiyə istəyini bildirə bilər.
+                Malların yoxlanılması mağazada texniki ekspert tərəfindən həyata
+                keçirilir. Qüsur yerində təsdiq edilərsə, təsdiqləmə prosesindən
+                sonra məhsul yenisi ilə əvəz olunacaq və ya ödənilən məbləğ geri
+                qaytarılacaq. Qüsuru yerindəcə təsdiq etmək mümkün olmadıqda,
+                məhsul ekspertizadan keçmək üçün servisə göndərilir. İstifadəçi
+                tərəfindən zədələnmiş, qüsurlu və ya Sifarişə uyğun olmayan
+                şəkildə geri qaytarılan malların həqiqətən belə olduğu müəyyən
+                edildikdən sonra, Alıcıya çatdırılma xərcləri daxil olmaqla,
+                onların dəyəri tam ödənilməlidir. Başqa ödəniş üsulundan
+                istifadə etməklə bağlı açıq şəkildə istifadəçi razılaşmasının
+                olduğu hallar istisna olmaqla, Malın geri Geri qaytarılması
+                Alıcının qaytarılmış əşyaları almaq üçün istifadə etdiyi eyni
+                ödəniş üsulu ilə həyata keçiriləcək. Sifariş blankına daxil
+                edilmiş malların alıcısı ilə bu malların haqqını ödəyən şəxs iki
+                fərqli şəxs olduqda və müqaviləyə ləğv edilməsi hüququndan
+                istifadə edildikdə, ödənilmiş məbləğ Sifariş üçün ödəniş edən
+                şəxsə geri qaytarılacaqdır.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseTwo"
+            >
+              Sifariş edilən məhsul neçə günə çatdırılır?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingTwo"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              <p>
+                Sifariş onlayn satış nümayəndəmizin zəngindən sonra həyata
+                keçirilir. Sifariş kiçik ölçülüdürsə və iş günü saat 13:00-a
+                qədər rəsmiləşdirilibsə, minimum planlaşdırılan çatdırılma
+                müddəti 1 gündür. Maksimum planlaşdırılan çatdırılma müddəti 3
+                iş günüdür. Beləki məhsul rayon mağazalarımızda yerləşirsə,
+                məsafə nəzərə alınmaqla çatdırılma 14 günə qədər gecikə bilər.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree"
+              aria-expanded="false"
+              aria-controls="flush-collapseThree"
+            >
+              Saytınızdan məhsul sifariş etdikdən sonra sifarişi ləğv etmək
+              mümkündürmü?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingThree"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              <p>
+                Bəli, ***** nömrəsi ilə əlaqə saxlayaraq sifariş məlumatlarınızı
+                bildirməklə sifarişinizi ləğv edə bilərsiniz. Sifariş
+                hazırlandıqdan və çatdırılmaq üçün kuryerə təhvil verildikdən
+                sonra ləğv edilə bilməz. Əlavə məlumat üçün "Geri qaytarma
+                siyasəti" bölməsinə baxın.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of faq -->
+
+
+
+
+
+
+@*
 <!-- faq -->
 <div class="faq_container container">
     <div class="faq_container_title">
@@ -41,4 +168,4 @@
 
     </div>
 </div>
-<!-- end of faq -->
+<!-- end of faq -->*@

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- favicon -->
     <link rel="shortcut icon" href="~/assets/images/logos/favicon.png" />
-    <title>diff - ana səhifə</title>
+    <title>diff - @ViewData["Title"]</title>
     <!-- bootstrap css -->
     <link rel="stylesheet"
           href="~/assets/vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css" />
@@ -38,6 +38,10 @@
 </head>
 <body>
     @await Component.InvokeAsync("Header")
+    
+    <div class="scroll_top_button">
+      <i class="fa-solid fa-chevron-up"></i>
+    </div>
 
     @RenderBody()
 
@@ -241,6 +245,55 @@
             })
         })
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        function addToCart(ev) {
+
+            ev.preventDefault();
+            ev.stopPropagation();
+
+            let data = $(ev.currentTarget).data();
+
+            addToBasket(data.itemId);
+            showCardCount();
+
+
+        }
+
+        function readFromBasket() {
+            return ($.cookie('cards') || '').split(',');
+        }
+
+        function addToBasket(cardId) {
+
+            let items = readFromBasket();
+            let length = items.filter(item => item == cardId).length;
+
+            if (length > 0) return;
+
+            items.push(cardId);
+
+
+            $.cookie('cards', items.toString(), { expires: 7, path: '/' });
+        }
+
+
+        function showCardCount() {
+
+
+            let items = readFromBasket();
+            console.log(items);
+
+            $('.nav_item_count').html(items.length - 1);
+        }
+
+        showCardCount();
+
+    </script>
+                                
+
     @RenderSection("js", required:false)
 
 </body>

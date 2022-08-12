@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Diff.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class ShopController : Controller
     {
         readonly DiffDbContext db;
@@ -21,7 +22,6 @@ namespace Diff.WebUI.Controllers
         }
 
 
-        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new ShopIndexViewModel();
@@ -39,6 +39,19 @@ namespace Diff.WebUI.Controllers
                .ToList();
 
             return View(model);
+        }
+        public IActionResult ProductDetails(int id)
+        {
+            var product = db.Products
+                .Include(p=>p.Images)
+                .Include(c=>c.Category)
+                .Include(c=>c.Brand)
+                .FirstOrDefault(p => p.Id == id && p.DeletedById == null);
+            if (product==null)
+            {
+                return NotFound();
+            }
+            return View(product);
         }
 
 

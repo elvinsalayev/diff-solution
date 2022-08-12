@@ -357,3 +357,13 @@ function clickEffect() {
   }
 }
 clickEffect();
+
+
+
+const accordion = document.getElementsByClassName('left_side_accordion_content');
+
+for (let i = 0; i < accordion.length; i++) {
+  accordion[i].addEventListener('click', function() {
+    this.classList.toggle('active');
+  });
+};
