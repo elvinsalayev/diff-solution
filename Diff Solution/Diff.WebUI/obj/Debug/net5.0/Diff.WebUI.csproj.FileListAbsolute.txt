@@ -403,3 +403,4 @@ C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Dif
 C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\obj\Debug\net5.0\Razor\Views\Shop\_ProductListPartial.cshtml.g.cs
 C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\obj\Debug\net5.0\Razor\Views\Shop\ProductDetails.cshtml.g.cs
 C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\obj\Debug\net5.0\Razor\Views\About\Index.cshtml.g.cs
+C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\obj\Debug\net5.0\Razor\Views\Account\Settings.cshtml.g.cs

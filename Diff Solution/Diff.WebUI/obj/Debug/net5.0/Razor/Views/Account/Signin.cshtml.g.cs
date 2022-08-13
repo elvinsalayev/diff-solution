@@ -61,8 +61,15 @@ using Diff.WebUI.Models.FormModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\Views\_ViewImports.cshtml"
+using Diff.WebUI.Models.Entities.Membership;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e8fc724ba7d27dd42675442d8da45d31608704e8", @"/Views/Account/Signin.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4d86dc97e0d2f30322fedc735f37c34b11bda6d6", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6e78d53c8d8a5ec37a3c38e5c00bcf77e2b2588b", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Account_Signin : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LoginFormModel>
     #nullable disable
@@ -110,9 +117,9 @@ using Diff.WebUI.Models.FormModels;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n      <!-- login -->\r\n    <main class=\"main\">\r\n      <section class=\"login_section\">\r\n        <div class=\"login_section_container container\">\r\n          ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8fc724ba7d27dd42675442d8da45d31608704e87537", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8fc724ba7d27dd42675442d8da45d31608704e87777", async() => {
                 WriteLiteral("\r\n            <h2 class=\"login_form_title\">GİRİŞ</h2>\r\n\r\n            <div class=\"login_form_control\">\r\n              ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8fc724ba7d27dd42675442d8da45d31608704e87920", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8fc724ba7d27dd42675442d8da45d31608704e88160", async() => {
                     WriteLiteral("İstifadəçi adı və ya email");
                 }
                 );
@@ -134,7 +141,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n              ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e8fc724ba7d27dd42675442d8da45d31608704e89528", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e8fc724ba7d27dd42675442d8da45d31608704e89768", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -158,7 +165,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n              <i class=\"fas fa-check-circle\"></i>\r\n              <i class=\"fas fa-exclamation-circle\"></i>\r\n              <span class=\"error_message\"></span>\r\n            </div>\r\n\r\n            <div class=\"login_form_control\">\r\n              ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8fc724ba7d27dd42675442d8da45d31608704e811606", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8fc724ba7d27dd42675442d8da45d31608704e811846", async() => {
                     WriteLiteral("Şifrə");
                 }
                 );
@@ -180,7 +187,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n              ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e8fc724ba7d27dd42675442d8da45d31608704e813194", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e8fc724ba7d27dd42675442d8da45d31608704e813434", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

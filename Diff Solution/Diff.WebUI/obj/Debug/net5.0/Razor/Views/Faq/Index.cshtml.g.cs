@@ -61,8 +61,15 @@ using Diff.WebUI.Models.FormModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\Views\_ViewImports.cshtml"
+using Diff.WebUI.Models.Entities.Membership;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e6c5379a327554353bfddab3dc1478cef8d54f49", @"/Views/Faq/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4d86dc97e0d2f30322fedc735f37c34b11bda6d6", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6e78d53c8d8a5ec37a3c38e5c00bcf77e2b2588b", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Faq_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Faq>>
     #nullable disable

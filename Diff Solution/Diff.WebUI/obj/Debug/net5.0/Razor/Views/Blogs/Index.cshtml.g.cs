@@ -61,8 +61,15 @@ using Diff.WebUI.Models.FormModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\Views\_ViewImports.cshtml"
+using Diff.WebUI.Models.Entities.Membership;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"882e945e7d0d95f589fa3bba87ac315dd2b5f249", @"/Views/Blogs/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4d86dc97e0d2f30322fedc735f37c34b11bda6d6", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6e78d53c8d8a5ec37a3c38e5c00bcf77e2b2588b", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Blogs_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Blogpost>>
     #nullable disable
@@ -130,9 +137,9 @@ using Diff.WebUI.Models.FormModels;
 #line hidden
 #nullable disable
             WriteLiteral("                        <div class=\"col-lg-4 col-md-12 post_container\">\r\n                            <article class=\"post\">\r\n                                <figure class=\"post_media\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "882e945e7d0d95f589fa3bba87ac315dd2b5f2497515", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "882e945e7d0d95f589fa3bba87ac315dd2b5f2497755", async() => {
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "882e945e7d0d95f589fa3bba87ac315dd2b5f2497810", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "882e945e7d0d95f589fa3bba87ac315dd2b5f2498050", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -195,7 +202,7 @@ AddHtmlAttributeValue("", 901, item.ImagePath, 901, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("</a>\r\n                                        | <a href=\"#\" class=\"post_comment\"><span>2</span> Şərh</a>\r\n                                    </div>\r\n                                    <h4 class=\"post_title\">\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "882e945e7d0d95f589fa3bba87ac315dd2b5f24912505", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "882e945e7d0d95f589fa3bba87ac315dd2b5f24912745", async() => {
 #nullable restore
 #line 39 "C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\Views\Blogs\Index.cshtml"
                                                                                    Write(item.Title);
@@ -240,7 +247,7 @@ AddHtmlAttributeValue("", 901, item.ImagePath, 901, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "882e945e7d0d95f589fa3bba87ac315dd2b5f24915394", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "882e945e7d0d95f589fa3bba87ac315dd2b5f24915634", async() => {
                 WriteLiteral("\r\n                                        Davamını oxu..<i class=\"d-icon-arrow-right\"></i>\r\n                                    ");
             }
             );

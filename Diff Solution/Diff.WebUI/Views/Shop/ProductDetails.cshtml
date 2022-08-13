@@ -1,7 +1,7 @@
 ﻿@model Product
 
 @{
-    ViewData["Title"] = "";
+    ViewData["Title"] = $"{Model.Name} - {Model.Category.Name}";
 }
 
 
@@ -30,7 +30,8 @@
 
             <div class="product_single_price"><span>@(Model.Id+20)</span> ₼</div>
             <div class="product_single_add_to_cart">
-                <div class="product_single_add_to_cart_button">
+                <div class="product_single_add_to_cart_button" data-item-id="@Model.Id"
+                                   data-item-name="@Model.Name" onclick="addToCart(event)">
                     <i class="fa fa-shopping-basket"></i>
                     <p>Səbətə Əlavə Et</p>
                 </div>

@@ -11,7 +11,7 @@
                         var imagePath = product.Images.FirstOrDefault(i => i.IsMain).ImagePath;
                        <li class="search_ul_list_item">
                     <a class="search_ul_list_item_link d-flex align-items-center"
-                       asp-action="singleproduct" asp-route-id="@product.Id">
+                       asp-action="productdetails" asp-route-id="@product.Id">
                         
                             <img class="search_ul_list_item_image"
                                  src="~/uploads/images/products/@imagePath" />

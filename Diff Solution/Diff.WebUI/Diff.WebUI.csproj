@@ -193,7 +193,6 @@
     <None Include="wwwroot\admin\bower_components\swiper\package\js\swiper.min.js" />
     <None Include="wwwroot\admin\bower_components\switchery\dist\switchery.min.js" />
     <None Include="wwwroot\admin\bower_components\underscore\underscore-min.js" />
-    <None Include="wwwroot\assets\js\lll.js" />
     <None Include="wwwroot\assets\js\login.js" />
     <None Include="wwwroot\assets\js\register.js" />
     <None Include="wwwroot\assets\js\script.js" />

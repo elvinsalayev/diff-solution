@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Diff.WebUI.Controllers
@@ -42,6 +44,18 @@ namespace Diff.WebUI.Controllers
         public IActionResult Profile()
         {
             return View();
+        }
+        [Route("/settings.html")]
+        public IActionResult Settings()
+        {
+            var user = db.Users
+                .Include(u => u.Name)
+                .Include(u => u.Surname)
+                .Include(u => u.UserName)
+                .Include(u => u.Email)
+                .Include(u => u.PasswordHash);
+
+            return View(user);
         }
         [Route("/accessdenied.html")]
         public IActionResult AccessDenied()

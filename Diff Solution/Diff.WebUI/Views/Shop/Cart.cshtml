@@ -91,17 +91,28 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
+        
+toastr.options = {
+    "closeButton": true,
+    "debug": true,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-bottom-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
 
-        //function setTotalPrice() {
-        //    let items = document.querySelectorAll('.amount');
-        //    let totalPrice = 0;
-        //    for (var i = 0; i < items.length; i++) {
-        //        totalPrice = totalPrice + parseInt(items[i].textContent);
-        //    }
-        //    $('#totalPrice').html(`${totalPrice}₼`);
-        //    console.log(totalPrice);
-        //}
-        //setTotalPrice();
+
+
+  
         function showCardCount() {
             let items = readFromBasket();
             $('.nav_item_count').html(items.length - 1);
@@ -121,17 +132,17 @@
             $.ajax({
                 success: function (response) {
                     if (response.error == true) {
-                        toastr.error(response.message, "Error!");
+                        toastr.error(response.message, "Xəta!");
                         return;
                     }
-                    toastr.success("Successfully Deleted", response.message)
+                    toastr.success("Uğurla silindi.", response.message)
                     $(`tr[data-entity-id=${entityId}]`).remove();
                     showCardCount();
                     //setTotalPrice();
                     checkCart();
                 },
                 error: function (response) {
-                    toastr["error"]("Unsuccessfully", "Data has not been deleted")
+                    toastr["error"]("Xəta baş verdi. Yenidən yoxlayın.")
                 }
             })
         }
