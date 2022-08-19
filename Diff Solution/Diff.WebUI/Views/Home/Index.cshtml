@@ -3,60 +3,97 @@
     ViewData["Title"] = "ana səhifə";
 }
 
-
-<!-- banner section -->
+ <!-- banner section -->
     <section class="banner_section swiper">
-        <div class="banner-container swiper-wrapper">
-            <div class="banner swiper-slide">
-                <div class="banner_image">
-                    <img class="image_banner img-fluid"
-                         src="./assets/images/banner-slider/banner-boy-1.png"
-                         alt="" />
-                </div>
-                <div class="banner_text">
-                    <div class="banner_title">
-                        <h2 class="banner_title_top">Shusha Edition</h2>
-                        <h2 class="banner_title_bottom">
-                            Black hoodie with 95% cotton content
-                        </h2>
-                    </div>
-                    <div class="banner_prices">
-                        <h2 class="banner_price_new">44.99₼</h2>
-                        <h2 class="banner_price_old">54.99₼</h2>
-                    </div>
-                    <button class="banner_buy_now_button">İNDİ AL</button>
-                </div>
+      <div class="banner-container swiper-wrapper">
+        <div class="banner swiper-slide">
+          <div class="banner_image">
+            <img
+              class="image_banner img-fluid"
+              src="./assets/images/banner-slider/banner-boy-1.png"
+              alt=""
+            />
+          </div>
+          <div class="banner_text">
+            <div class="banner_title">
+              <h2 class="banner_title_top">Shusha Edition</h2>
+              <h2 class="banner_title_bottom">
+                Black hoodie with 95% cotton content
+              </h2>
             </div>
-            <div class="banner swiper-slide">
-                <div class="banner_image">
-                    <img class="image_banner img-fluid"
-                         src="./assets/images/banner-slider/banner-girl-1.png"
-                         alt="" />
-                </div>
-                <div class="banner_text">
-                    <div class="banner_title">
-                        <h2 class="banner_title_top">Baku Edition</h2>
-                        <h2 class="banner_title_bottom">
-                            White hoodie with 95% cotton content
-                        </h2>
-                    </div>
-                    <div class="banner_prices">
-                        <h2 class="banner_price_new">44.99₼</h2>
-                        <h2 class="banner_price_old">54.99₼</h2>
-                    </div>
-                    <button class="banner_buy_now_button">İNDİ AL</button>
-                </div>
+            <div class="banner_prices">
+              <h2 class="banner_price_new">44.99₼</h2>
+              <h2 class="banner_price_old">54.99₼</h2>
             </div>
+            <a asp-controller="shop" asp-action="index" class="banner_buy_now_button">
+              <p>ƏTRAFLI</p>
+              <svg stroke-width="4" stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+              </svg>
+          </a>
+          </div>
         </div>
+        <div class="banner swiper-slide">
+          <div class="banner_image">
+            <img
+              class="image_banner img-fluid"
+              src="./assets/images/banner-slider/banner-girl-1.png"
+              alt=""
+            />
+          </div>
+          <div class="banner_text">
+            <div class="banner_title">
+              <h2 class="banner_title_top">Baku Edition</h2>
+              <h2 class="banner_title_bottom">
+                White hoodie with 95% cotton content
+              </h2>
+            </div>
+            <div class="banner_prices">
+              <h2 class="banner_price_new">44.99₼</h2>
+              <h2 class="banner_price_old">54.99₼</h2>
+            </div>
+
+            <a asp-controller="shop" asp-action="index" class="banner_buy_now_button">
+              <p>ƏTRAFLI</p>
+              <svg stroke-width="4" stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+              </svg>
+          </a>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- end of banner section-->
+
     <!-- sale -->
     <div class="sale_banner">
-        <img src="./assets/images/banner-slider/1920-700.jpg"
-             alt=""
-             class="img-fluid" />
+      <div class="sale_banner_left"></div>
+      <div class="sale_banner_right">
+        <div class="sale_banner_right_top">
+          <p class="sale_banner_right_top_text">Cütlüklər</p>
+          <p class="sale_banner_right_top_text">Üçün</p>
+          
+        </div>
+        
+        <div class="sale_banner_right_bottom">
+          <p class="sale_banner_right_bottom_text">ENDİRİM</p>
+          <p class="sale_banner_right_bottom_text">ENDİRİM</p>
+          <p class="sale_banner_right_bottom_text">ENDİRİM</p>
+          <p class="sale_banner_right_bottom_text">ENDİRİM</p>
+        </div>
+
+        
+      </div>
+      <a asp-controller="shop" asp-action="index" class="sale_banner_button">
+        <span class="top-key"></span>
+        <span class="text">İNDİ AL</span>
+        <span class="bottom-key-1"></span>
+        <span class="bottom-key-2"></span
+      ></a>
     </div>
     <!-- end of sale -->
+
+
     <!-- new collection -->
     <section class="new_collection_section">
         <h2 class="new_collection_section_title">Yeni Kolleksiya</h2>

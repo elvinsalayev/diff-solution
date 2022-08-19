@@ -68,8 +68,15 @@ using Diff.WebUI.Models.Entities.Membership;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\Views\_ViewImports.cshtml"
+using Diff.WebUI.AppCode.Modules.ProfileModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9ebe5f24d7001fef27dec13dad1a9bae0d754960", @"/Views/Shop/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6e78d53c8d8a5ec37a3c38e5c00bcf77e2b2588b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9703ca4c4f8b2f0bec17bdc2acbc68faae01bde6", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shop_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ShopIndexViewModel>
     #nullable disable
@@ -319,7 +326,7 @@ WriteAttributeValue("", 3271, item.Id, 3271, 8, false);
                 <div class=""products_sort"">
                     <select name=""orderby"" class=""products_sort_select_list"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496015839", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496016083", async() => {
                 WriteLiteral("Ən Populyar");
             }
             );
@@ -335,7 +342,7 @@ WriteAttributeValue("", 3271, item.Id, 3271, 8, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496017028", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496017272", async() => {
                 WriteLiteral("Ən Yenilər");
             }
             );
@@ -351,7 +358,7 @@ WriteAttributeValue("", 3271, item.Id, 3271, 8, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496018216", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496018460", async() => {
                 WriteLiteral("Bahadan Ucuza");
             }
             );
@@ -367,7 +374,7 @@ WriteAttributeValue("", 3271, item.Id, 3271, 8, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496019407", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496019651", async() => {
                 WriteLiteral("Ucuzdan Bahaya");
             }
             );
@@ -393,9 +400,9 @@ WriteAttributeValue("", 3271, item.Id, 3271, 8, false);
 #line hidden
 #nullable disable
             WriteLiteral("                        <div class=\"product_card col-lg-4\">\r\n                            <figure class=\"product_image\">\r\n\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496021208", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ebe5f24d7001fef27dec13dad1a9bae0d75496021452", async() => {
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9ebe5f24d7001fef27dec13dad1a9bae0d75496021500", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9ebe5f24d7001fef27dec13dad1a9bae0d75496021744", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

@@ -16,6 +16,12 @@ namespace Diff.WebUI.AppCode.Extensions
 
             return principal.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.Email))?.Value;
         }
+
+        static public string GetUserId(this ClaimsPrincipal principal) 
+        {
+            return principal.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
+        }
+
         static public bool HasAccess(this ClaimsPrincipal principal, string policyName)
         {
             return principal.IsInRole("SuperAdmin")

@@ -68,8 +68,15 @@ using Diff.WebUI.Models.Entities.Membership;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\Views\_ViewImports.cshtml"
+using Diff.WebUI.AppCode.Modules.ProfileModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b2209919d978101d3be33d6123f5ac9b63a486dc", @"/Views/Blogs/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6e78d53c8d8a5ec37a3c38e5c00bcf77e2b2588b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9703ca4c4f8b2f0bec17bdc2acbc68faae01bde6", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Blogs_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<SinglePostViewModel>
     #nullable disable
@@ -126,7 +133,7 @@ using Diff.WebUI.Models.Entities.Membership;
                 <div class=""single_post"">
                     <figure class=""single_post_image"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b2209919d978101d3be33d6123f5ac9b63a486dc8052", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b2209919d978101d3be33d6123f5ac9b63a486dc8296", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -182,7 +189,7 @@ AddHtmlAttributeValue("", 379, Model.Post.ImagePath, 379, 21, false);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2209919d978101d3be33d6123f5ac9b63a486dc11584", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2209919d978101d3be33d6123f5ac9b63a486dc11828", async() => {
                 WriteLiteral("\r\n                        <input type=\"text\"");
                 BeginWriteAttribute("name", "\r\n                               name=\"", 1508, "\"", 1547, 0);
                 EndWriteAttribute();
@@ -221,7 +228,7 @@ AddHtmlAttributeValue("", 379, Model.Post.ImagePath, 379, 21, false);
                     <div class=""single_post_comments_header"">
                         <div class=""single_post_comments_item_image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b2209919d978101d3be33d6123f5ac9b63a486dc14050", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b2209919d978101d3be33d6123f5ac9b63a486dc14294", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

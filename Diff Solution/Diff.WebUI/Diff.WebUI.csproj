@@ -262,6 +262,7 @@
     <Folder Include="AppCode\Modules\SizeModule\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\uploads\images\blogs\" />
+    <Folder Include="wwwroot\uploads\images\users\" />
     <Folder Include="wwwroot\uploads\images\products\" />
   </ItemGroup>
 

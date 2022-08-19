@@ -68,8 +68,15 @@ using Diff.WebUI.Models.Entities.Membership;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\Views\_ViewImports.cshtml"
+using Diff.WebUI.AppCode.Modules.ProfileModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d9bfa81ecebbd70794417844f9677fcf2ef2d4d0", @"/Views/Preloader/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6e78d53c8d8a5ec37a3c38e5c00bcf77e2b2588b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9703ca4c4f8b2f0bec17bdc2acbc68faae01bde6", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Preloader_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -108,7 +115,7 @@ using Diff.WebUI.Models.Entities.Membership;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9bfa81ecebbd70794417844f9677fcf2ef2d4d05099", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9bfa81ecebbd70794417844f9677fcf2ef2d4d05343", async() => {
                 WriteLiteral(@"
     <meta charset=""UTF-8"" />
     <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"" />
@@ -153,7 +160,7 @@ using Diff.WebUI.Models.Entities.Membership;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9bfa81ecebbd70794417844f9677fcf2ef2d4d07682", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9bfa81ecebbd70794417844f9677fcf2ef2d4d07926", async() => {
                 WriteLiteral("\r\n\r\n    <!--preloader -->\r\n    <div class=\"preloader\">\r\n        <span>d</span>\r\n        <span>i</span>\r\n        <span>f</span>\r\n        <span>f</span>\r\n    </div>\r\n    <script>\r\n\r\n        setTimeout(function() {\r\n            window.location.href = \'");
 #nullable restore
 #line 51 "C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\Views\Preloader\Index.cshtml"

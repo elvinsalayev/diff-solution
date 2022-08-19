@@ -9,5 +9,6 @@ namespace Diff.WebUI.Models.Entities.Membership
         public string Name { get; set; }
         [Required]
         public string Surname { get; set; }
+        public string ImagePath { get; set; }
     }
 }

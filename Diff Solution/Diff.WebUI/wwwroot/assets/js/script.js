@@ -80,14 +80,30 @@ sr.reveal(".header", {
   distance: "200px"
 });
 
-sr.reveal(".sale_banner", {
-  origin: "bottom",
-  distance: "200px",
-  duration: 2000
-});
-
 sr.reveal(".new_collection_section", {
   origin: "bottom",
+  delay: 500,
+  duration: 2000,
+  distance: "200px"
+});
+
+sr.reveal(".sale_banner_left", {
+  origin: "left",
+  delay: 500,
+  duration: 2000,
+  distance: "200px"
+});
+sr.reveal(".sale_banner_button", {
+  origin: "left",
+  delay: 500,
+  duration: 2000,
+  distance: "5000px"
+});
+
+
+
+sr.reveal(".sale_banner_right", {
+  origin: "right",
   delay: 500,
   duration: 2000,
   distance: "200px"

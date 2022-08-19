@@ -1,0 +1,69 @@
+﻿@model ProfileEditCommand
+@{
+    ViewData["Title"] = "tənzimləmələr";
+}
+
+<div class="account_section container">
+    <div class="account_title">
+        <h1 class="account_title_text">Tənzimləmələr</h1>
+    </div>
+    <form method="post" enctype="multipart/form-data" asp-action="profile" class="account_form">
+        <table class="account_table">
+            <tr>
+                <td class="account_label">Şəkil</td>
+                <td>
+                    <img class="account_image" src="./uploads/images/blogs/blog-image-341cabd3-caa4-4207-966b-97d7fcab97b9.png" alt="profile-photo">
+                    <i class="fa fa-edit"></i>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="account_label">Ad</td>
+                <td>
+                    <input type="text" asp-for="@Model.Name" class="account_name" />
+                </td>
+            </tr>
+            <tr>
+                <td class="account_label">Soyad</td>
+                <td>
+                    <input type="text" asp-for="@Model.Surname" class="account_surname" />
+                </td>
+            </tr>
+            <tr>
+                <td class="account_label">İstifadəçi adı</td>
+                <td>
+                    <input type="text" asp-for="@Model.Username" class="account_username" />
+                </td>
+            </tr>
+            <tr>
+                <td class="account_label">Email</td>
+                <td>
+                    <input type="text" asp-for="@Model.Email" class="account_email" />
+                </td>
+            </tr>
+
+            <tr>
+                <td class="account_label">Şifrə</td>
+                <td>
+                    <input type="password" class="account_password" />
+                </td>
+            </tr>
+
+            <tr>
+                <td class="account_label">Şifrəni təkrarla</td>
+                <td>
+                    <input type="password" class="account_password_again" />
+                </td>
+            </tr>
+            <tr class="account_submit">
+                <td>
+                    <input type="submit"
+                           value="Yadda saxla"
+                           class="account_submit_button" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+

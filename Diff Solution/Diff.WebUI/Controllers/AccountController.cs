@@ -1,5 +1,5 @@
 ﻿using Diff.WebUI.AppCode.Extensions;
-using Diff.WebUI.AppCode.Modules.AccountModule;
+using Diff.WebUI.AppCode.Modules.ProfileModule;
 using Diff.WebUI.Models.DataContexts;
 using Diff.WebUI.Models.Entities.Membership;
 using Diff.WebUI.Models.FormModels;
@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System.Linq;
+using System;
 using System.Threading.Tasks;
 
 namespace Diff.WebUI.Controllers
@@ -23,16 +23,18 @@ namespace Diff.WebUI.Controllers
         private readonly UserManager<DiffUser> userManager;
         private readonly IConfiguration configuration;
         private readonly IActionContextAccessor ctx;
+        private readonly IMediator mediator;
 
         public AccountController(DiffDbContext db, SignInManager<DiffUser> signInManager, UserManager<DiffUser> userManager,
             IConfiguration configuration,
-            IActionContextAccessor ctx)
+            IActionContextAccessor ctx, IMediator mediator)
         {
             this.db = db;
             this.signInManager = signInManager;
             this.userManager = userManager;
             this.configuration = configuration;
             this.ctx = ctx;
+            this.mediator = mediator;
         }
         [Route("/signin.html")]
         [AllowAnonymous]
@@ -41,21 +43,34 @@ namespace Diff.WebUI.Controllers
             return View();
         }
         [Route("/profile.html")]
-        public IActionResult Profile()
+        public async Task<IActionResult> Profile()
         {
-            return View();
+            var userId = User.GetUserId();
+            var user = await userManager.FindByIdAsync(userId);
+            var command = new ProfileEditCommand();
+            command.Id = user.Id;
+            command.Name = user.Name;
+            command.Surname = user.Surname;
+            command.Username = user.UserName;
+            command.Email = user.Email;
+            command.EmailConfirmed = user.EmailConfirmed;
+            command.ImagePath = user.ImagePath;
+            return View(command);
         }
-        [Route("/settings.html")]
-        public IActionResult Settings()
-        {
-            var user = db.Users
-                .Include(u => u.Name)
-                .Include(u => u.Surname)
-                .Include(u => u.UserName)
-                .Include(u => u.Email)
-                .Include(u => u.PasswordHash);
 
-            return View(user);
+        [HttpPost]
+        [Route("/profile.html")]
+        public async Task<IActionResult> Profile(ProfileEditCommand command)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = User.GetUserId();
+                command.Id = Convert.ToInt32(userId);
+                var response = await mediator.Send(command);
+                return RedirectToAction(nameof(Profile));
+            }
+
+            return View(command);
         }
         [Route("/accessdenied.html")]
         public IActionResult AccessDenied()
@@ -130,6 +145,7 @@ namespace Diff.WebUI.Controllers
                 user.Name = model.Name;
                 user.Surname = model.Surname;
                 user.UserName = model.Username;
+                user.ImagePath = "profile-photo.jpg";
 
                 var result = await userManager.CreateAsync(user, model.Password);
 
@@ -137,14 +153,14 @@ namespace Diff.WebUI.Controllers
                 {
                     var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
                     string path = $"{ctx.GetAppLink()}/registration-confirm.html?email={user.Email}&token={token}";
-                    var emailResponse = configuration.SendEmail(user.Email, "Diff istifadəçi qeydiyyatı", $"Zəhmət olmasa <a href=\"{path}\">link</a> vasitəsilə qeydiyyatı tamamlayasınız");
+                    var emailResponse = configuration.SendEmail(user.Email, "Diff istifadəçi qeydiyyatı", $"Zəhmət olmasa <a href=\"{path}\">link</a> linkə keçid edib qeydiyyatı tamamlayın.");
                     if (emailResponse)
                     {
-                        ViewBag.Message = "Təbriklər qeydiyyat Tamamlandı, Sizinlə Tezliklə Əlaqə Saxlanılacaq";
+                        ViewBag.Message = "Qeydiyyat tamamlandı, sizinlə tezliklə əlaqə saxlanılacaq";
                     }
                     else
                     {
-                        ViewBag.Message = "E-mailə göndərərkən səhv aşkar olundu, yenidən cəhd edin";
+                        ViewBag.Message = "Səhv oldu, yenidən cəhd edin.";
                     }
 
                     return RedirectToAction(nameof(SignIn));
@@ -165,19 +181,23 @@ namespace Diff.WebUI.Controllers
             var foundedUser = await userManager.FindByEmailAsync(email);
             if (foundedUser == null)
             {
-                ViewBag.Message = "Xətalı Token göndərilib";
+                ViewBag.Message = "Xətalı token göndərilib.";
                 goto end;
             }
             token = token.Replace(" ", "+");
             var result = await userManager.ConfirmEmailAsync(foundedUser, token);
             if (!result.Succeeded)
             {
-                ViewBag.Message = "Xətalı Token göndərilib";
+                ViewBag.Message = "Xətalı token göndərilib.";
                 goto end;
             }
-            ViewBag.Message = "Hesabınız təsdiqləndi, sizinlə tezliklə əlaqə saxlanılacaq";
+            ViewBag.Message = "Hesabınız təsdiqləndi, sizinlə tezliklə əlaqə saxlanılacaq.";
         end:
             return RedirectToAction(nameof(SignIn));
         }
+
+
+
+
     }
 }

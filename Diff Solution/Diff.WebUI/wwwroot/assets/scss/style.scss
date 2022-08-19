@@ -20,6 +20,10 @@
   font-family: "Paris";
   src: url(../fonts/Paris-demo.ttf);
 }
+@font-face {
+  font-family: "HeadingNow";
+  src: url(../fonts/HeadingNow-95Medium.otf);
+}
 @import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap");
@@ -239,6 +243,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
     &:first-child {
       border-bottom: 3px solid white;
     }
@@ -270,7 +275,7 @@ body {
     letter-spacing: 1px;
     &:hover {
       color: white;
-      font-weight: 500;
+      font-weight: 600;
     }
   }
 }
@@ -346,6 +351,13 @@ body {
     &:hover {
       color: white;
     }
+  }
+  p {
+    color: white;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: auto;
   }
 }
 .account_dropdown_menu_login_success_open {
@@ -791,14 +803,227 @@ body {
         }
       }
       .banner_buy_now_button {
-        margin-left: 20px;
-        padding: 10px;
-        font-size: 2vw;
-        color: black;
-        font-family: "Futurica", sans-serif;
-        border-bottom: 2px solid black;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none;
+        --primary-color: #111;
+        --hovered-color: #3edf29;
+        position: relative;
+        display: flex;
+        font-weight: 600;
+        font-size: 20px;
+        gap: 0.5rem;
+        align-items: center;
+        p {
+          margin: 0;
+          position: relative;
+          font-size: 20px;
+          color: var(--primary-color);
+          &::before {
+            position: absolute;
+            content: "ƏTRAFLI";
+            width: 0%;
+            inset: 0;
+            color: var(--hovered-color);
+            overflow: hidden;
+            transition: 0.3s ease-out;
+          }
+        }
+        &::after {
+          position: absolute;
+          content: "";
+          width: 0;
+          left: 0;
+          bottom: -7px;
+          background: var(--hovered-color);
+          height: 2px;
+          transition: 0.3s ease-out;
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+          p {
+            &::before {
+              width: 100%;
+            }
+          }
+          svg {
+            transform: translateX(4px);
+            color: var(--hovered-color);
+          }
+        }
+        svg {
+          color: var(--primary-color);
+          transition: 0.2s;
+          position: relative;
+          width: 15px;
+          transition-delay: 0.2s;
+        }
+      }
+      
+    }
+  }
+}
+
+.sale_banner {
+  width: 100%;
+  display: flex;
+  height: auto;
+  position: relative;
+  .sale_banner_left {
+    background-color: #e7e6e0;
+    background: url("/assets/images/banner-slider/shop-now-banner.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 58%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .sale_banner_right {
+    background-color: #ff3c3c;
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    .sale_banner_right_top {
+      margin-top: 3vw;
+      .sale_banner_right_top_text {
+        font-family: "HeadingNow", sans-serif;
+        text-transform: uppercase;
+        text-align: right;
+        font-size: 3.6vw;
+        color: white;
+        width: 100%;
+        margin: 10px 0;
       }
     }
+    .sale_banner_right_bottom {
+      margin-top: 2.5vw;
+    }
+    .sale_banner_right_bottom_text {
+      font-family: "HeadingNow", sans-serif;
+      text-transform: uppercase;
+      text-align: right;
+      font-size: 5.5vw;
+      color: white;
+      width: 100%;
+      object-fit: cover;
+      color: #ff3c3c;
+      -webkit-text-stroke: 3px white;
+      margin: 5px;
+      &:nth-child(2) {
+        opacity: 60%;
+      }
+      &:nth-child(3) {
+        opacity: 30%;
+      }
+      &:nth-child(4) {
+        opacity: 10%;
+      }
+    }
+  }
+  .sale_banner_button {
+    background-color: #e7e6e0d3;
+    border: 2px solid #000;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 1.25em 2em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: all 0.5s ease-in-out;
+    user-select: none;
+    font-size: 13px;
+    position: absolute;
+    left: 45%;
+    top: 70%;
+    &::before {
+      content: " ";
+      width: 1.5625rem;
+      height: 2px;
+      background: black;
+      top: 50%;
+      left: 1.5em;
+      position: absolute;
+      transform: translateY(-50%);
+      transform-origin: center;
+      transition: background 0.3s linear, width 0.3s linear;
+    }
+    .text {
+      font-size: 1.5em;
+      line-height: 1.33333em;
+      padding-left: 2em;
+      display: block;
+      text-align: left;
+      transition: all 0.3s ease-in-out;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: black;
+    }
+    .top-key {
+      height: 2px;
+      width: 1.5625rem;
+      top: -2px;
+      left: 0.625rem;
+      position: absolute;
+      background: #e7e6e0d3;
+      transition: width 0.5s ease-out, left 0.3s ease-out;
+    }
+    .bottom-key-1 {
+      height: 2px;
+      width: 1.5625rem;
+      right: 1.875rem;
+      bottom: -2px;
+      position: absolute;
+      background: #e7e6e0d3;
+      transition: width 0.5s ease-out, right 0.3s ease-out;
+    }
+    .bottom-key-2 {
+      height: 2px;
+      width: 0.625rem;
+      right: 0.625rem;
+      bottom: -2px;
+      position: absolute;
+      background: #e7e6e0d3;
+      transition: width 0.5s ease-out, right 0.3s ease-out;
+    }
+    &:hover {
+      color: white;
+      background: black;
+      &::before {
+        width: 0.9375rem;
+        background: white;
+      }
+      .text {
+        color: white;
+        padding-left: 1.5em;
+      }
+      .top-key {
+        left: -2px;
+        width: 0px;
+      }
+    }
+  }
+  .sale_banner_button:hover .bottom-key-1,
+  .sale_banner_button:hover .bottom-key-2 {
+    right: 0;
+    width: 0;
   }
 }
 
@@ -2022,7 +2247,7 @@ body {
           .account_label {
             width: 200px;
           }
-          i{
+          i {
             position: absolute;
             bottom: 0;
             right: 0;
@@ -2033,7 +2258,6 @@ body {
             padding: 10px;
             border-radius: 50%;
             background-color: $green;
-            
           }
           .account_image {
             width: 150px;
@@ -2249,6 +2473,7 @@ body {
         font-size: 1rem;
         font-weight: 600;
         transition: all 0.3s ease-in-out;
+        cursor: pointer;
         &:hover {
           transition: all 0.3s ease-in-out;
           box-shadow: 0 0 10px $green;

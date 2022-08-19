@@ -68,8 +68,15 @@ using Diff.WebUI.Models.Entities.Membership;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\HP\Desktop\development\back-end\project\diff-solution\Diff Solution\Diff.WebUI\Views\_ViewImports.cshtml"
+using Diff.WebUI.AppCode.Modules.ProfileModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1d2cb8680a6afdb4a09c760b47b201d4989c9f86", @"/Views/Shared/_Sidebar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6e78d53c8d8a5ec37a3c38e5c00bcf77e2b2588b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9703ca4c4f8b2f0bec17bdc2acbc68faae01bde6", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared__Sidebar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -114,7 +121,7 @@ using Diff.WebUI.Models.Entities.Membership;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<!-- sidebar menu -->\r\n<div class=\"sidebar_menu\">\r\n    <div class=\"sidebar_menu_close_button\">\r\n        <i class=\"fa fa-close\"></i>\r\n        Bağla\r\n    </div>\r\n    <div class=\"search_bar\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f869271", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f869515", async() => {
                 WriteLiteral("\r\n            <input id=\"searchBtn\" type=\"text\"\r\n                   class=\"search_bar_input\"\r\n                   name=\"search\"\r\n                   autocomplete=\"off\"\r\n                   placeholder=\"Axtar...\"");
                 BeginWriteAttribute("required", "\r\n                   required=\"", 543, "\"", 574, 0);
                 EndWriteAttribute();
@@ -142,7 +149,7 @@ using Diff.WebUI.Models.Entities.Membership;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n    </div>\r\n    <div id=\"productList\" class=\"row\">\r\n    </div>\r\n    <ul class=\"sidebar_menu_list\">\r\n        <li class=\"sidebar_menu_item\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8611950", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8612194", async() => {
                 WriteLiteral("Ana Səhifə");
             }
             );
@@ -160,7 +167,7 @@ using Diff.WebUI.Models.Entities.Membership;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </li>\r\n        <li class=\"sidebar_menu_item\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8613389", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8613633", async() => {
                 WriteLiteral("Məhsullar");
             }
             );
@@ -178,7 +185,7 @@ using Diff.WebUI.Models.Entities.Membership;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </li>\r\n        <li class=\"sidebar_menu_item\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8614811", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8615055", async() => {
                 WriteLiteral("Bloqlar");
             }
             );
@@ -196,7 +203,7 @@ using Diff.WebUI.Models.Entities.Membership;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n        <li class=\"sidebar_menu_item\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8616219", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8616463", async() => {
                 WriteLiteral("Haqqımızda");
             }
             );
@@ -214,7 +221,7 @@ using Diff.WebUI.Models.Entities.Membership;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n        <li class=\"sidebar_menu_item\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8617632", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8617876", async() => {
                 WriteLiteral("Əlaqə");
             }
             );
@@ -232,7 +239,7 @@ using Diff.WebUI.Models.Entities.Membership;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n        <li class=\"sidebar_menu_item\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8619040", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2cb8680a6afdb4a09c760b47b201d4989c9f8619284", async() => {
                 WriteLiteral("FAQ");
             }
             );
