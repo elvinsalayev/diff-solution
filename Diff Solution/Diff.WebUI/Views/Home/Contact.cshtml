@@ -20,14 +20,13 @@
               class="col-lg-9 col-md-8 col-sm-6 d-flex align-items-center mb-4"
             >
               <div class="w-100">
-                <form class="pl-lg-2" method="post">
+                <form class="pl-lg-2" id="contact-form" method="post">
                   <div class="row mb-2">
                     <div class="col-12 mb-4">
                       <textarea
                         class="contact_message_area"
-                        required=""
                         placeholder="Mesaj*"
-                        spellcheck="false"
+                        asp-for="Message"
                       ></textarea>
                     </div>
                     <div class="col-md-6 mb-4">
@@ -35,7 +34,7 @@
                         class="contact_name_area"
                         type="text"
                         placeholder="Ad, Soyad *"
-                        required=""
+                        asp-for="FullName"
                       />
                     </div>
                     <div class="col-md-6 mb-4">
@@ -43,7 +42,7 @@
                         class="contact_email_area"
                         type="email"
                         placeholder="Email *"
-                        required=""
+                        asp-for="Email"
                       />
                     </div>
                   </div>
