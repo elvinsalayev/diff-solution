@@ -1,0 +1,70 @@
+﻿.table_operations {
+    text-align: right;
+    min-width: 34px !important;
+    max-width: 34px !important;
+}
+
+    .table_operations i {
+        margin: 0;
+        color: white;
+    }
+
+.blogpost_image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.table > thead > tr > th:not(.table_operations) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.table td.cell-sm {
+    max-width: 180px;
+    width: 180px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.table td.cell-md {
+    max-width: 250px;
+    width: 250px;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+}
+
+.ck-content {
+    min-height: 300px;
+}
+
+.photo-viewer {
+    width: 200px;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    background-image: url(https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg);
+    object-fit: cover;
+    cursor:pointer;
+}
+
+    .photo-viewer + input[type="file"] {
+        display: none;
+    }
+
+
+    @media (max-width: 1200px) {
+        .td.ellipse {
+        max-width: 50px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
